@@ -1,0 +1,173 @@
+{
+  "main": {
+    "id": "0f2f13c2258555e4",
+    "type": "split",
+    "children": [
+      {
+        "id": "e2e559e61f4d1522",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "945f2bf1467a0504",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Книги/Альтыстория.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6ea659c15ce48c29",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ФП/Параметрический полиморфизм.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ab3382e6eefb97ec",
+    "type": "split",
+    "children": [
+      {
+        "id": "d9e0cb40f4ef5188",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "085c0f19dc99b034",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b3c3c63c8cc38b18",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ef2490bac4378049",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "992801b225cc7e26",
+    "type": "split",
+    "children": [
+      {
+        "id": "227d086fce587878",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "aaabac7ce38874c4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Книги/Альтыстория.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6e140e9ab05ad726",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Книги/Альтыстория.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7ef864098779d771",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "ed1b58618ba791a4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Книги/Альтыстория.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false
+    }
+  },
+  "active": "945f2bf1467a0504",
+  "lastOpenFiles": [
+    "Без названия.canvas",
+    "ФП/Теория категорий.md",
+    "Книги/Сборники статей и книг.md",
+    "Книги/Математика.md",
+    "Физика/Статьи.md",
+    "Физика/Is the (3+1)−d nature of the universe a thermodynamic necessity.md",
+    "Книги/Альтыстория.md",
+    "Книги/Стихи.md",
+    "ФП/ITT.md",
+    "ФП/Scala.md"
+  ]
+}

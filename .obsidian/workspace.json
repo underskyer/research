@@ -8,31 +8,63 @@
         "type": "tabs",
         "children": [
           {
-            "id": "2e8e818d457613f2",
+            "id": "6ea659c15ce48c29",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Заметки/Числа Фибоначчи.md",
-                "mode": "source",
+                "file": "ФП/Параметрический полиморфизм.md",
+                "mode": "preview",
                 "source": false
               }
             }
           },
           {
-            "id": "26b81c531925ee16",
+            "id": "a5d0e3123c8534fd",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "7b1ff4d2cf84ff86",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "15932cede3db4155",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "922244b8e209c7d2",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "7fc9e9cb8c065a37",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Заметки/Числа Фибоначчи.md",
+                "file": "К чтению.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -82,7 +114,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 300
   },
   "right": {
     "id": "992801b225cc7e26",
@@ -98,7 +130,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Заметки/Числа Фибоначчи.md",
+                "file": "К чтению.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +147,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Заметки/Числа Фибоначчи.md",
+                "file": "К чтению.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +170,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Заметки/Числа Фибоначчи.md"
+                "file": "К чтению.md"
               }
             }
           }
@@ -146,7 +178,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 243.5
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -158,17 +190,17 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "26b81c531925ee16",
+  "active": "7fc9e9cb8c065a37",
   "lastOpenFiles": [
-    "К чтению.md",
-    "Заметки/Числа Фибоначчи.md",
-    "Без названия.canvas",
+    "Рефераты/Конструкция Гротендика.md",
+    "Рефераты/Лема Йонеды.md",
+    "Рефераты/Расширения Кана.md",
+    "Рефераты/Числа Фибоначчи.md",
+    "Рефераты/Комплексные числа.md",
+    "ФП/Параметрический полиморфизм.md",
     "Книги/Альтыстория.md",
+    "Без названия.canvas",
     "ФП/Теория категорий.md",
-    "Книги/Сборники статей и книг.md",
-    "Книги/Математика.md",
-    "Физика/Статьи.md",
-    "Физика/Is the (3+1)−d nature of the universe a thermodynamic necessity.md",
-    "Книги/Стихи.md"
+    "Книги/Сборники статей и книг.md"
   ]
 }

@@ -8,6 +8,18 @@
         "type": "tabs",
         "children": [
           {
+            "id": "945f2bf1467a0504",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Книги/Альтыстория.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
             "id": "6ea659c15ce48c29",
             "type": "leaf",
             "state": {
@@ -15,50 +27,6 @@
               "state": {
                 "file": "ФП/Параметрический полиморфизм.md",
                 "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a5d0e3123c8534fd",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "7b1ff4d2cf84ff86",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "15932cede3db4155",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "922244b8e209c7d2",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "7fc9e9cb8c065a37",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "К чтению.md",
-                "mode": "source",
                 "source": false
               }
             }
@@ -130,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "К чтению.md",
+                "file": "Книги/Альтыстория.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "К чтению.md",
+                "file": "Книги/Альтыстория.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -170,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "К чтению.md"
+                "file": "Книги/Альтыстория.md"
               }
             }
           }
@@ -192,15 +160,15 @@
   },
   "active": "7fc9e9cb8c065a37",
   "lastOpenFiles": [
-    "Рефераты/Конструкция Гротендика.md",
-    "Рефераты/Лема Йонеды.md",
-    "Рефераты/Расширения Кана.md",
-    "Рефераты/Числа Фибоначчи.md",
-    "Рефераты/Комплексные числа.md",
-    "ФП/Параметрический полиморфизм.md",
-    "Книги/Альтыстория.md",
     "Без названия.canvas",
     "ФП/Теория категорий.md",
-    "Книги/Сборники статей и книг.md"
+    "Книги/Сборники статей и книг.md",
+    "Книги/Математика.md",
+    "Физика/Статьи.md",
+    "Физика/Is the (3+1)−d nature of the universe a thermodynamic necessity.md",
+    "Книги/Альтыстория.md",
+    "Книги/Стихи.md",
+    "ФП/ITT.md",
+    "ФП/Scala.md"
   ]
 }

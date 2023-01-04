@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Рефераты/Числа Фибоначчи.md",
+                "file": "Рефераты/Комплексные числа.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c126fb4779da0379",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Рефераты/Основы механики.md",
                 "mode": "source",
                 "source": false
               }
             }
+          },
+          {
+            "id": "caf0846ea52729e4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Рефераты/Цепные дроби.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -69,7 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "992801b225cc7e26",
@@ -85,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Рефераты/Числа Фибоначчи.md",
+                "file": "Рефераты/Основы механики.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Рефераты/Числа Фибоначчи.md",
+                "file": "Рефераты/Основы механики.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Рефераты/Числа Фибоначчи.md"
+                "file": "Рефераты/Основы механики.md"
               }
             }
           }
@@ -146,16 +171,17 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "6ea659c15ce48c29",
+  "active": "c126fb4779da0379",
   "lastOpenFiles": [
-    "ФП/Параметрический полиморфизм.md",
-    "Рефераты/Числа Фибоначчи.md",
-    "Рефераты/Лема Йонеды.md",
-    "Рефераты/Конструкция Гротендика.md",
+    "Физика/Гомология и фейнмановские интегралы.md",
+    "Физика/Лекции по топологии для физиков.md",
+    "Физика/Статьи.md",
+    "Рефераты/Основы механики.md",
     "Рефераты/Комплексные числа.md",
-    "К чтению.md",
-    "Рефераты/Расширения Кана.md",
-    "Книги/Альтыстория.md",
-    "Без названия.canvas"
+    "Рефераты/Числа Фибоначчи.md",
+    "Рефераты/Цепные дроби.md",
+    "кмф.md",
+    "Рефераты/Конструкция Гротендика.md",
+    "Книги/Стихи.md"
   ]
 }

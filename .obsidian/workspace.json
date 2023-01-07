@@ -37,8 +37,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Книги/Стихи.md",
-                "mode": "preview",
+                "file": "Рефераты/Комплексные числа.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -122,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Книги/Стихи.md",
+                "file": "Рефераты/Комплексные числа.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Книги/Стихи.md",
+                "file": "Рефераты/Комплексные числа.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Книги/Стихи.md"
+                "file": "Рефераты/Комплексные числа.md"
               }
             }
           }
@@ -185,15 +185,15 @@
   },
   "active": "184803ccf8fdc765",
   "lastOpenFiles": [
+    "PDF/Геометрические методы математической физики - Шутц 1982.pdf",
+    "PDF/Геометрические методы в математической физике - Катанаев 2016.pdf",
+    "Рефераты/Комплексные числа.md",
+    "Книги/Стихи.md",
     "Рефераты/Пространство и время.md",
     "Рефераты/Расширения Кана.md",
     "Рефераты/Лема Йонеды.md",
     "Рефераты/Числа Фибоначчи.md",
     "Рефераты/Цепные дроби.md",
-    "Рефераты/Основы механики.md",
-    "Рефераты/Конструкция Гротендика.md",
-    "Рефераты/Комплексные числа.md",
-    "Физика/Is the (3+1)−d nature of the universe a thermodynamic necessity.md",
-    "Физика/Статьи.md"
+    "Рефераты/Основы механики.md"
   ]
 }

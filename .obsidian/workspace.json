@@ -25,8 +25,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Рефераты/Основы механики.md",
+                "file": "Рефераты/Комплексные числа.md",
                 "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "184803ccf8fdc765",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Книги/Стихи.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -44,7 +56,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -110,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Рефераты/Основы механики.md",
+                "file": "Книги/Стихи.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Рефераты/Основы механики.md",
+                "file": "Книги/Стихи.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Рефераты/Основы механики.md"
+                "file": "Книги/Стихи.md"
               }
             }
           }
@@ -171,17 +183,17 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "c126fb4779da0379",
+  "active": "184803ccf8fdc765",
   "lastOpenFiles": [
-    "Физика/Гомология и фейнмановские интегралы.md",
-    "Физика/Лекции по топологии для физиков.md",
-    "Физика/Статьи.md",
-    "Рефераты/Основы механики.md",
-    "Рефераты/Комплексные числа.md",
+    "Рефераты/Пространство и время.md",
+    "Рефераты/Расширения Кана.md",
+    "Рефераты/Лема Йонеды.md",
     "Рефераты/Числа Фибоначчи.md",
     "Рефераты/Цепные дроби.md",
-    "кмф.md",
+    "Рефераты/Основы механики.md",
     "Рефераты/Конструкция Гротендика.md",
-    "Книги/Стихи.md"
+    "Рефераты/Комплексные числа.md",
+    "Физика/Is the (3+1)−d nature of the universe a thermodynamic necessity.md",
+    "Физика/Статьи.md"
   ]
 }

@@ -35,11 +35,9 @@
             "id": "184803ccf8fdc765",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Рефераты/Комплексные числа.md",
-                "mode": "source",
-                "source": false
+                "file": "PDF/Алгебра - Ленг.pdf"
               }
             }
           },
@@ -122,7 +120,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Рефераты/Комплексные числа.md",
+                "file": "PDF/Алгебра - Ленг.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -139,7 +137,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Рефераты/Комплексные числа.md",
+                "file": "PDF/Алгебра - Ленг.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,7 +160,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Рефераты/Комплексные числа.md"
+                "file": "PDF/Алгебра - Ленг.pdf"
               }
             }
           }
@@ -185,9 +183,9 @@
   },
   "active": "184803ccf8fdc765",
   "lastOpenFiles": [
+    "Рефераты/Комплексные числа.md",
     "PDF/Геометрические методы математической физики - Шутц 1982.pdf",
     "PDF/Геометрические методы в математической физике - Катанаев 2016.pdf",
-    "Рефераты/Комплексные числа.md",
     "Книги/Стихи.md",
     "Рефераты/Пространство и время.md",
     "Рефераты/Расширения Кана.md",

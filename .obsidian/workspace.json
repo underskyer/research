@@ -8,36 +8,26 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6ea659c15ce48c29",
+            "id": "c126fb4779da0379",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Рефераты/Комплексные числа.md",
+                "file": "ФП/Scala.md",
                 "mode": "preview",
                 "source": false
               }
             }
           },
           {
-            "id": "c126fb4779da0379",
+            "id": "78cfa5849b2e78be",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Рефераты/Комплексные числа.md",
+                "file": "Рефераты/Теория типов.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "184803ccf8fdc765",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "PDF/Алгебра - Ленг.pdf"
               }
             }
           },
@@ -54,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -120,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "PDF/Алгебра - Ленг.pdf",
+                "file": "Рефераты/Теория типов.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -137,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "PDF/Алгебра - Ленг.pdf",
+                "file": "Рефераты/Теория типов.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -160,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "PDF/Алгебра - Ленг.pdf"
+                "file": "Рефераты/Теория типов.md"
               }
             }
           }
@@ -178,20 +168,21 @@
       "canvas:Create new canvas": false,
       "daily-notes:Сегодняшняя заметка": false,
       "templates:Вставить шаблон": false,
-      "command-palette:Открыть палитру команд": false
+      "command-palette:Открыть палитру команд": false,
+      "obsidian-excalidraw-plugin:New Excalidraw drawing": false
     }
   },
-  "active": "184803ccf8fdc765",
+  "active": "78cfa5849b2e78be",
   "lastOpenFiles": [
+    "ФП/Scala.md",
+    "ФП/Scala kind polymorphism.md",
+    "ФП/Dependent types in Scala.md",
+    "ФП/Теория категорий.md",
+    "ФП/Полиморфизм высокого ранга в Scala.md",
+    "ФП/Параметрический полиморфизм.md",
     "Рефераты/Комплексные числа.md",
+    "PDF/Алгебра - Ленг.pdf",
     "PDF/Геометрические методы математической физики - Шутц 1982.pdf",
-    "PDF/Геометрические методы в математической физике - Катанаев 2016.pdf",
-    "Книги/Стихи.md",
-    "Рефераты/Пространство и время.md",
-    "Рефераты/Расширения Кана.md",
-    "Рефераты/Лема Йонеды.md",
-    "Рефераты/Числа Фибоначчи.md",
-    "Рефераты/Цепные дроби.md",
-    "Рефераты/Основы механики.md"
+    "PDF/Геометрические методы в математической физике - Катанаев 2016.pdf"
   ]
 }

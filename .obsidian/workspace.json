@@ -168,8 +168,7 @@
       "canvas:Create new canvas": false,
       "daily-notes:Сегодняшняя заметка": false,
       "templates:Вставить шаблон": false,
-      "command-palette:Открыть палитру команд": false,
-      "obsidian-excalidraw-plugin:New Excalidraw drawing": false
+      "command-palette:Открыть палитру команд": false
     }
   },
   "active": "78cfa5849b2e78be",

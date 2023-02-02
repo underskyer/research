@@ -8,26 +8,26 @@
         "type": "tabs",
         "children": [
           {
-            "id": "c126fb4779da0379",
+            "id": "e6d89e195a1fdccf",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Рефераты/Теория типов.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "pinned": true
             }
           },
           {
-            "id": "e6d89e195a1fdccf",
+            "id": "74b4e192a2c85143",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "ФП/Высшие индуктивные типы.md",
-                "mode": "source",
-                "source": false
+                "file": "Pasted Image 20230202122008_025.png"
               }
             }
           }
@@ -146,7 +146,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -159,17 +159,17 @@
       "obsidian-excalidraw-plugin:New Excalidraw drawing": false
     }
   },
-  "active": "c126fb4779da0379",
+  "active": "e6d89e195a1fdccf",
   "lastOpenFiles": [
+    "Pasted Image 20230202122008_025.png",
+    "Рефераты/Теория типов.md",
+    "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
+    "Pasted Image 20230202120411_492.png",
+    "Рефераты/Pasted image 20230127135819.png",
+    "Excalidraw/Drawing 2023-02-02 11.17.07.excalidraw.md",
+    "ФП/Высшие индуктивные типы.md",
     "Рефераты/Комплексные числа.md",
     "Рефераты/Основы механики.md",
-    "Рефераты/Конструкция Гротендика.md",
-    "Рефераты/Пространство и время.md",
-    "Рефераты/Теория типов.md",
-    "Рефераты/Цепные дроби.md",
-    "Рефераты/Числа Фибоначчи.md",
-    "Без названия.md",
-    "ФП/Высшие индуктивные типы.md",
-    "PDF/Типы в языках прогарммирования.pdf"
+    "Рефераты/Конструкция Гротендика.md"
   ]
 }

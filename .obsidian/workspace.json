@@ -22,7 +22,7 @@
             }
           },
           {
-            "id": "74b4e192a2c85143",
+            "id": "1bfffaa534d1f2bf",
             "type": "leaf",
             "state": {
               "type": "excalidraw",
@@ -81,7 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 465.5
   },
   "right": {
     "id": "992801b225cc7e26",
@@ -162,14 +162,14 @@
   "active": "e6d89e195a1fdccf",
   "lastOpenFiles": [
     "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
+    "Рефераты/Теория типов.md",
+    "PDF/Гомотопическая теория типов.pdf",
+    "Рефераты/Pasted Image 20230210102823_820.png",
     "Рефераты/Pasted Image 20230202120411_492.png",
     "Рефераты/Pasted image 20230127135819.png",
-    "Рефераты/Теория типов.md",
     "Рефераты/Pasted Image 20230202122008_025.png",
     "Excalidraw/Drawing 2023-02-02 11.17.07.excalidraw.md",
     "ФП/Высшие индуктивные типы.md",
-    "Рефераты/Комплексные числа.md",
-    "Рефераты/Основы механики.md",
-    "Рефераты/Конструкция Гротендика.md"
+    "Рефераты/Комплексные числа.md"
   ]
 }

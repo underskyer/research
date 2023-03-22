@@ -4,6 +4,10 @@
 
 [@OweinReese](https://twitter.com/OweinReese)
 
+
+[Ограничения зависимых от путей типов](https://stackoverflow.com/questions/73832836/scala-3-dealing-with-path-dependent-types)
+
+
 ## What is a Dependent Type?
 
 ```

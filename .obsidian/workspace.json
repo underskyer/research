@@ -25,13 +25,16 @@
             "id": "1bfffaa534d1f2bf",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md"
+                "file": "ФП/Кан и Йонеда.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,7 +84,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 465.5
+    "width": 325.5
   },
   "right": {
     "id": "992801b225cc7e26",
@@ -97,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Рефераты/Теория типов.md",
+                "file": "ФП/Кан и Йонеда.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Рефераты/Теория типов.md",
+                "file": "ФП/Кан и Йонеда.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Рефераты/Теория типов.md"
+                "file": "ФП/Кан и Йонеда.md"
               }
             }
           }
@@ -150,26 +153,40 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "canvas:Создать новый холст": false,
       "switcher:Меню быстрого перехода": false,
       "graph:Граф": false,
-      "canvas:Create new canvas": false,
       "daily-notes:Сегодняшняя заметка": false,
       "templates:Вставить шаблон": false,
       "command-palette:Открыть палитру команд": false,
       "obsidian-excalidraw-plugin:New Excalidraw drawing": false
     }
   },
-  "active": "e6d89e195a1fdccf",
+  "active": "1bfffaa534d1f2bf",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
     "Рефераты/Теория типов.md",
+    "Рефераты/Пространство и время.md",
+    "Рефераты/Основы механики.md",
+    "Рефераты/Конструкция Гротендика.md",
+    "Рефераты/Комплексные числа.md",
+    "ФП/Dependent types in Scala.md",
+    "ФП/Кан и Йонеда.md",
+    "ФП/Высшие индуктивные типы.md",
+    "ФП/Recursion schemes and recursive data in Scala.md",
+    "ФП/ITT.md",
+    "ФП/HoTT.md",
+    "PDF/Гамильтонова механика и ее обобщения - Прохоров 2008.pdf",
+    "PDF/Записки лекций по симплектической геометрии и топологии - Прасолов 2019.pdf",
+    "Книги/Стихи.md",
+    "Книги/Сборники статей и книг.md",
+    "Книги/Альтыстория.md",
+    "К чтению.md",
+    "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
     "PDF/Гомотопическая теория типов.pdf",
     "Рефераты/Pasted Image 20230210102823_820.png",
     "Рефераты/Pasted Image 20230202120411_492.png",
     "Рефераты/Pasted image 20230127135819.png",
     "Рефераты/Pasted Image 20230202122008_025.png",
-    "Excalidraw/Drawing 2023-02-02 11.17.07.excalidraw.md",
-    "ФП/Высшие индуктивные типы.md",
-    "Рефераты/Комплексные числа.md"
+    "Excalidraw/Drawing 2023-02-02 11.17.07.excalidraw.md"
   ]
 }

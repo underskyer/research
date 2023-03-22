@@ -22,7 +22,19 @@
             }
           },
           {
-            "id": "1bfffaa534d1f2bf",
+            "id": "548f63bcc5656a53",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Рефераты/Теория типов.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "74b4e192a2c85143",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -158,8 +170,7 @@
       "graph:Граф": false,
       "daily-notes:Сегодняшняя заметка": false,
       "templates:Вставить шаблон": false,
-      "command-palette:Открыть палитру команд": false,
-      "obsidian-excalidraw-plugin:New Excalidraw drawing": false
+      "command-palette:Открыть палитру команд": false
     }
   },
   "active": "1bfffaa534d1f2bf",
@@ -183,7 +194,10 @@
     "К чтению.md",
     "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
     "PDF/Гомотопическая теория типов.pdf",
+    "Рефераты/Pasted Image 20230210110121_871.png",
     "Рефераты/Pasted Image 20230210102823_820.png",
+    "PDF/Homotopy Type Theory (online).pdf",
+    "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
     "Рефераты/Pasted Image 20230202120411_492.png",
     "Рефераты/Pasted image 20230127135819.png",
     "Рефераты/Pasted Image 20230202122008_025.png",

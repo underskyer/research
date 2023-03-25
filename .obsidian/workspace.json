@@ -45,8 +45,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -112,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ФП/Кан и Йонеда.md",
+                "file": "Рефераты/Теория типов.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ФП/Кан и Йонеда.md",
+                "file": "Рефераты/Теория типов.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ФП/Кан и Йонеда.md"
+                "file": "Рефераты/Теория типов.md"
               }
             }
           }
@@ -173,7 +172,7 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "1bfffaa534d1f2bf",
+  "active": "e6d89e195a1fdccf",
   "lastOpenFiles": [
     "Рефераты/Теория типов.md",
     "Рефераты/Пространство и время.md",

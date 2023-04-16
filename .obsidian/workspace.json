@@ -27,7 +27,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Рефераты/Теория типов.md",
+                "file": "Рефераты/Комплексные числа.md",
                 "mode": "source",
                 "source": false
               }
@@ -45,7 +45,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -111,7 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Рефераты/Теория типов.md",
+                "file": "Рефераты/Комплексные числа.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +129,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Рефераты/Теория типов.md",
+                "file": "Рефераты/Комплексные числа.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +152,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Рефераты/Теория типов.md"
+                "file": "Рефераты/Комплексные числа.md"
               }
             }
           }
@@ -172,8 +173,10 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "e6d89e195a1fdccf",
+  "active": "548f63bcc5656a53",
   "lastOpenFiles": [
+    "PDF/Высшая алгебра - Окунев.pdf",
+    "PDF/Не подтвержден 614586.crdownload",
     "Рефераты/Теория типов.md",
     "Рефераты/Пространство и время.md",
     "Рефераты/Основы механики.md",

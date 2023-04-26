@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Рефераты/Теория типов.md",
+                "file": "Рефераты/Теория типов/Основы теории типов.md",
                 "mode": "source",
                 "source": false
               },
@@ -27,7 +27,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Рефераты/Комплексные числа.md",
+                "file": "Рефераты/Теория типов/Основы теории типов.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "adc6548a31646ebe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Рефераты/Теория типов/Основы теории типов.md",
                 "mode": "source",
                 "source": false
               }
@@ -46,7 +58,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -112,7 +124,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Рефераты/Комплексные числа.md",
+                "file": "Рефераты/Теория типов/Основы теории типов.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +141,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Рефераты/Комплексные числа.md",
+                "file": "Рефераты/Теория типов/Основы теории типов.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +164,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Рефераты/Комплексные числа.md"
+                "file": "Рефераты/Теория типов/Основы теории типов.md"
               }
             }
           }
@@ -165,6 +177,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New Excalidraw drawing": false,
       "canvas:Создать новый холст": false,
       "switcher:Меню быстрого перехода": false,
       "graph:Граф": false,
@@ -173,15 +186,21 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "548f63bcc5656a53",
+  "active": "adc6548a31646ebe",
   "lastOpenFiles": [
+    "Рефераты/Теория типов/Обобщённые типы.md",
+    "Рефераты/Теория типов/Основы теории типов.md",
+    "Рефераты/Теория типов",
+    "Рефераты/Комплексные числа.md",
     "PDF/Высшая алгебра - Окунев.pdf",
-    "PDF/Не подтвержден 614586.crdownload",
-    "Рефераты/Теория типов.md",
+    "PDF/~$иложение №1 Описание объекта закупки.docx",
+    "PDF/Приложение №1 Описание объекта закупки.docx",
+    "PDF/Не подтвержден 979215.crdownload",
+    "PDF/ТЕОРЕМА ФРОБЕНИУСА.pdf",
+    "PDF/Не подтвержден 477658.crdownload",
     "Рефераты/Пространство и время.md",
     "Рефераты/Основы механики.md",
     "Рефераты/Конструкция Гротендика.md",
-    "Рефераты/Комплексные числа.md",
     "ФП/Dependent types in Scala.md",
     "ФП/Кан и Йонеда.md",
     "ФП/Высшие индуктивные типы.md",
@@ -198,7 +217,6 @@
     "PDF/Гомотопическая теория типов.pdf",
     "Рефераты/Pasted Image 20230210110121_871.png",
     "Рефераты/Pasted Image 20230210102823_820.png",
-    "PDF/Homotopy Type Theory (online).pdf",
     "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
     "Рефераты/Pasted Image 20230202120411_492.png",
     "Рефераты/Pasted image 20230127135819.png",

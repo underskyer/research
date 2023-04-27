@@ -20,45 +20,8 @@
               },
               "pinned": true
             }
-          },
-          {
-            "id": "548f63bcc5656a53",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Рефераты/Теория типов/Основы теории типов.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "adc6548a31646ebe",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Рефераты/Теория типов/Основы теории типов.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "74b4e192a2c85143",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ФП/Кан и Йонеда.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -186,10 +149,21 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "adc6548a31646ebe",
+  "active": "e6d89e195a1fdccf",
   "lastOpenFiles": [
-    "Рефераты/Теория типов/Обобщённые типы.md",
+    "Pasted image 20230427204233.png",
+    "Рефераты/Теория типов/Pasted image 20230427202241.png",
+    "Рефераты/Теория типов/Pasted image 20230427201403.png",
+    "Рефераты/Теория типов/Pasted Image 20230210110121_871.png",
+    "Рефераты/Теория типов/Pasted Image 20230203101528_980.png",
+    "Рефераты/Теория типов/Pasted Image 20230202122008_025.png",
+    "Рефераты/Теория типов/Pasted Image 20230202120411_492.png",
+    "Рефераты/Теория типов/Pasted Image 20230210102823_820.png",
     "Рефераты/Теория типов/Основы теории типов.md",
+    "Pasted image 20230427202212.png",
+    "Pasted image 20230427202150.png",
+    "Pasted image 20230427202059.png",
+    "Рефераты/Теория типов/Обобщённые типы.md",
     "Рефераты/Теория типов",
     "Рефераты/Комплексные числа.md",
     "PDF/Высшая алгебра - Окунев.pdf",
@@ -215,12 +189,7 @@
     "К чтению.md",
     "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
     "PDF/Гомотопическая теория типов.pdf",
-    "Рефераты/Pasted Image 20230210110121_871.png",
-    "Рефераты/Pasted Image 20230210102823_820.png",
     "Excalidraw/Drawing 2023-02-02 12.03.56.excalidraw.md",
-    "Рефераты/Pasted Image 20230202120411_492.png",
-    "Рефераты/Pasted image 20230127135819.png",
-    "Рефераты/Pasted Image 20230202122008_025.png",
     "Excalidraw/Drawing 2023-02-02 11.17.07.excalidraw.md"
   ]
 }

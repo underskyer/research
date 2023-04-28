@@ -20,8 +20,19 @@
               },
               "pinned": true
             }
+          },
+          {
+            "id": "f23ddc8c43beb8a2",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "Рефераты/Теория типов/Pasted Image 20230203101528_980.png"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -87,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Рефераты/Теория типов/Основы теории типов.md",
+                "file": "Рефераты/Теория типов/Pasted Image 20230203101528_980.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Рефераты/Теория типов/Основы теории типов.md",
+                "file": "Рефераты/Теория типов/Pasted Image 20230203101528_980.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -127,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Рефераты/Теория типов/Основы теории типов.md"
+                "file": "Рефераты/Теория типов/Pasted Image 20230203101528_980.png"
               }
             }
           }
@@ -149,20 +160,19 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "e6d89e195a1fdccf",
+  "active": "f23ddc8c43beb8a2",
   "lastOpenFiles": [
+    "Рефераты/Теория типов/Основы теории типов.md",
+    "Рефераты/Теория типов/Pasted Image 20230202122008_025.png",
+    "Рефераты/Теория типов/Pasted Image 20230202120411_492.png",
+    "Pasted image 20230428184816.png",
     "Pasted image 20230427204233.png",
     "Рефераты/Теория типов/Pasted image 20230427202241.png",
     "Рефераты/Теория типов/Pasted image 20230427201403.png",
     "Рефераты/Теория типов/Pasted Image 20230210110121_871.png",
     "Рефераты/Теория типов/Pasted Image 20230203101528_980.png",
-    "Рефераты/Теория типов/Pasted Image 20230202122008_025.png",
-    "Рефераты/Теория типов/Pasted Image 20230202120411_492.png",
     "Рефераты/Теория типов/Pasted Image 20230210102823_820.png",
-    "Рефераты/Теория типов/Основы теории типов.md",
     "Pasted image 20230427202212.png",
-    "Pasted image 20230427202150.png",
-    "Pasted image 20230427202059.png",
     "Рефераты/Теория типов/Обобщённые типы.md",
     "Рефераты/Теория типов",
     "Рефераты/Комплексные числа.md",

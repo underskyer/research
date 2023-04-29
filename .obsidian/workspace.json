@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Рефераты/Теория типов/Pasted Image 20230203101528_980.png",
+                "file": "Рефераты/Теория типов/Основы теории типов.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Рефераты/Теория типов/Pasted Image 20230203101528_980.png",
+                "file": "Рефераты/Теория типов/Основы теории типов.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Рефераты/Теория типов/Pasted Image 20230203101528_980.png"
+                "file": "Рефераты/Теория типов/Основы теории типов.md"
               }
             }
           }
@@ -160,8 +159,9 @@
       "command-palette:Открыть палитру команд": false
     }
   },
-  "active": "f23ddc8c43beb8a2",
+  "active": "e6d89e195a1fdccf",
   "lastOpenFiles": [
+    "Рефераты/Теория типов/Pasted Image 20230203101528_980.png",
     "Рефераты/Теория типов/Основы теории типов.md",
     "Рефераты/Теория типов/Pasted Image 20230202122008_025.png",
     "Рефераты/Теория типов/Pasted Image 20230202120411_492.png",
@@ -170,7 +170,6 @@
     "Рефераты/Теория типов/Pasted image 20230427202241.png",
     "Рефераты/Теория типов/Pasted image 20230427201403.png",
     "Рефераты/Теория типов/Pasted Image 20230210110121_871.png",
-    "Рефераты/Теория типов/Pasted Image 20230203101528_980.png",
     "Рефераты/Теория типов/Pasted Image 20230210102823_820.png",
     "Pasted image 20230427202212.png",
     "Рефераты/Теория типов/Обобщённые типы.md",

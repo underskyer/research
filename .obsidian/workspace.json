@@ -161,7 +161,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:New Excalidraw drawing": false,
       "canvas:Создать новый холст": false,
       "switcher:Меню быстрого перехода": false,
       "graph:Граф": false,

@@ -5,3 +5,5 @@
 *.json
 *.json
 .obsidian/workspace.json
+.obsidian/app.json
+.obsidian/workspace.json

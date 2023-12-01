@@ -1,3 +1,8 @@
+
+[Путеводитель неофита по Scala](https://github.com/anton-k/ru-neophyte-guide-to-scala/blob/master/README.md)
+
+
+
 [Scala with Cats](https://fpspecialty.github.io/scala-with-cats/scala-with-cats.html#eventual-consistency)
 
 [herding cats — IO datatype](https://eed3si9n.com/herding-cats/IO.html)

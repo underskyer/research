@@ -311,7 +311,7 @@ var query =
 var list = "the quick brown fox jumps over the lazy dog"
     .Split(' ')
     .GroupBy(w => w.Length, w => w.ToUpper())
-    .Select(g => new { Length = g.Key, Words = g }) // map
+    .Select (g => new { Length = g.Key, Words = g }) // map
     .OrderBy(o => o.Length)
     .ToList();
 ```

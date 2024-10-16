@@ -308,11 +308,12 @@ var query =
 ```
 У Linq больше приятных плюшек: помимо типовых map, flatMap, filter (в C# другие названия) там есть комбинаторы для группировки, сортировки и т.п. И также как и в `for` можно определять свои “стековые” переменные. И также как с `for`, универсальность linq является мнимой – для слишком многих операций не нашлось подходящего синтаксического сахара. Поэтому, *чтобы не усложнять* стандартный синтаксис вызовов методов с “модным” Linq, хорошим тоном считается избегать по возможности последний:
 ```scala
-var query = "the quick brown fox jumps over the lazy dog"
+var list = "the quick brown fox jumps over the lazy dog"
     .Split(' ')
     .GroupBy(w => w.Length, w => w.ToUpper())
     .Select(g => new { Length = g.Key, Words = g }) // map
-    .OrderBy(o => o.Length);
+    .OrderBy(o => o.Length)
+    .ToList();
 ```
 
 #### Что ты предлагаешь

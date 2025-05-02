@@ -9,3 +9,4 @@
 
 [Representable Functors](https://www.siawyoung.com/representable-functors/)
 
+Every adjunction is representable. (from Scalaz docs)

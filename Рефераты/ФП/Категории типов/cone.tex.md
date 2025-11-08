@@ -1,23 +1,26 @@
 ```tikz
 \usepackage{tikz-cd}
 \usetikzlibrary{decorations.pathmorphing}
-\tikzcdset{scale cd/.style={every label/.append style={scale=#1},
-    arrows={line width=#1}
+\tikzcdset{scale cd/.style={every
+    label/.append style={scale=#1},
+    cells={nodes={scale=#1}},
+    arrows={ultra thick}
 }}
 
 \begin{document}
 
-\begin{tikzcd}[scale cd=2]
+\begin{tikzcd}[scale cd=1.5]
+
 
 &&&&&& \begin{array}{c} \, \\ \mathcal{C} \end{array} \\
 &&&&&& \begin{array}{c} c \\ \bullet \end{array} \\
 \\
 \\
 \\
+&\mathcal{I} &&&&&&
 \\
-\begin{array}{c} \bullet \\ 1 \end{array} &
-\begin{array}{c} \mathcal{I} \\ \, \\ \, \end{array} &
-\begin{array}{c} \bullet \\ 2 \end{array} &&&
+\vbox to 10cm {\begin{array}{c} \bullet \\ 1 \end{array}} &&
+\smash{\begin{array}{c} \bullet \\ 2 \end{array}} &&&
 \begin{array}{c} \bullet \\ a \end{array} &
 \begin{array}{c} F_{ab}\, \mathcal{I} \\ \, \\ \, \end{array} &
 \begin{array}{c} \bullet \\ b \end{array}

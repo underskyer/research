@@ -1,35 +1,39 @@
 ```tikz
 \usepackage{tikz-cd}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{xcolor}
 \usetikzlibrary{decorations.pathmorphing}
 \tikzcdset{scale cd/.style={every
-    label/.append style={scale=#1},
+    label/.append style={scale=1.7},
     cells={nodes={scale=#1}},
     arrows={ultra thick}
 },
 }
 
 \begin{document}
-
+\mathversion{bold}
 \begin{tikzcd}[scale cd=2]
 
 
 &&&&&&&&&& \mathcal{C} \\
-&&&&&&&&&& c \\
+&&&&&&&&&& |[alias=c]|c \\
 \\
 \\
 \\
-&\mathcal{I} &&&&&&&&&& \\
-1 && 2 &&&&&&& a & F_{ab}\, \mathcal{I} & b
+&&&&&&&&&&& \\
+|[alias=1]|1 && |[alias=2]|2 &&&&&&& |[alias=a]|a && |[alias=b]|b
 
-\arrow[""{name=0, anchor=center, inner sep=0}, draw=none, from=7-1, to=7-3]
+\arrow[""{name=I, anchor=center, inner sep=0}, "{\mathcal{I}}"', draw=none, from=1, to=2]
 
-\arrow["{\tiny \mathrm{Cone}_{F_{ab}}(c)_1}"', color=red, from=2-11, to=7-10]
-\arrow["{\tiny \mathrm{Cone}_{F_{ab}}(c)_2}", color=red, from=2-11, to=7-12]
+\arrow["{\small \mathrm{Cone}_{F_{ab}}(c)_1}"{pos=0.7}, color=red, from=c, to=a]
+\arrow["{\tiny \mathrm{Cone}_{F_{ab}}(c)_2}"{pos=0.7}, color=red, from=c, to=b]
 
-\arrow[""{name=1, anchor=center}, "{F_{ab}}"', shift left=2, color=green, Rightarrow, from=7-3, to=7-10]
-\arrow[""{name=2, inner sep=0}, "{\Delta_c}", shorten <=3cm, color=blue, Rightarrow, from=0, to=2-11]
+\arrow[""{name=Delta, inner sep=0}, "{\Delta_c}", shorten <=20mm, color=blue, Rightarrow, from=I, to=c]
+\arrow[""{name=Fab, anchor=center}, "{F_{ab}}"', shift left=2, color=Green, Rightarrow, from=2, to=a]
 
-\arrow["{\mathrm{Cone}_{F_{ab}}(c)}", shift left=5, color=red, squiggly,  from=2, to=1]
+\arrow[""{name=FabI, anchor=center, inner sep=0}, "{F_{ab}\, \mathcal{I}}"', draw=none, from=a, to=b]
+
+\arrow["{\mathrm{Cone}_{F_{ab}}(c)}", shorten <=3mm, color=red, squiggly,  from=Delta, to=Fab]
 
 \end{tikzcd}
 \end{document}

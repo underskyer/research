@@ -6,31 +6,30 @@
     cells={nodes={scale=#1}},
     arrows={ultra thick}
 },
-  every label/.append style = {
-    font = \everymath\expandafter{\the\everymath\textstyle},
-  },
-  every label/.append style = {font = \normalsize}
 }
 
 \begin{document}
 
-\begin{tikzcd}[scale cd=1.5]
+\begin{tikzcd}[scale cd=2]
 
 
-&&&&&& \mathcal{C} \\
-&&&&&& c \\
+&&&&&&&&&& \mathcal{C} \\
+&&&&&&&&&& c \\
 \\
 \\
 \\
-&\mathcal{I} &&&&&& \\
-1 && 2 &&& a & F_{ab}\, \mathcal{I} & b
+&\mathcal{I} &&&&&&&&&& \\
+1 && 2 &&&&&&& a & F_{ab}\, \mathcal{I} & b
 
-\arrow["{\mathrm{Cone}_{F_{ab}}(c)_1}"', color=red, from=2-7, to=7-6]
-\arrow["{\mathrm{Cone}_{F_{ab}}(c)_2}", color=red, from=2-7, to=7-8]
 \arrow[""{name=0, anchor=center, inner sep=0}, draw=none, from=7-1, to=7-3]
-\arrow[""{name=1, anchor=center}, "{\Large F_{ab}}"', shift left=2, color=green, Rightarrow, from=7-3, to=7-6]
-\arrow[""{name=2, inner sep=0}, "{\Large \Delta_c}", between={0.1}{1}, color=blue, Rightarrow, from=0, to=2-7]
-\arrow["{\Large \mathrm{Cone}_{F_{ab}}(c)}", shift left=5, color=red, squiggly,  from=2, to=1]
+
+\arrow["{\tiny \mathrm{Cone}_{F_{ab}}(c)_1}"', color=red, from=2-11, to=7-10]
+\arrow["{\tiny \mathrm{Cone}_{F_{ab}}(c)_2}", color=red, from=2-11, to=7-12]
+
+\arrow[""{name=1, anchor=center}, "{F_{ab}}"', shift left=2, color=green, Rightarrow, from=7-3, to=7-10]
+\arrow[""{name=2, inner sep=0}, "{\Delta_c}", shorten <=3cm, color=blue, Rightarrow, from=0, to=2-11]
+
+\arrow["{\mathrm{Cone}_{F_{ab}}(c)}", shift left=5, color=red, squiggly,  from=2, to=1]
 
 \end{tikzcd}
 \end{document}

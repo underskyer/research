@@ -21,8 +21,16 @@
 \\
 \\
 \\
-&&&&&&&&&&& \\
-|[alias=1]|1 && |[alias=2]|2 &&&&&&& |[alias=a]|a && |[alias=b]|b
+\\
+|[alias=1]|1 && |[alias=2]|2 &&&&&&&
+
+|[alias=a]|a &
+\makebox[15mm]{
+\begin{tikzpicture}
+\filldraw[color=red!60, fill=red!5, very thick](0,0) ellipse (2 and 1);
+\end{tikzpicture}
+}
+& |[alias=b]|b
 
 \arrow[""{name=I, anchor=center, inner sep=0}, "{\mathcal{I}}"', draw=none, from=1, to=2]
 
@@ -36,11 +44,18 @@
 
 \arrow["{\mathrm{Cone}_{\bf F_{ab}}(c)}"'{pos=0.8}, start anchor={[yshift=7mm]}, shift left=2cm, color=red, squiggly, from=Delta, to=Fab]
 
+
 \end{tikzcd}
+\end{document}
+```
+
+```tikz
+\usepackage{tikz}
+\begin{document}
 
 \begin{tikzpicture}
 \filldraw[color=red!60, fill=red!5, very thick](-1,0) circle (1.5);
-\fill[blue!50] (2.5,0) ellipse (1.5 and 0.5);
+\fill[color=red!60, fill=red!5, very thick] (2.5,0) ellipse (1.5 and 0.5);
 \draw[ultra thick, ->] (6.5,0) arc (0:220:1);
 \end{tikzpicture}
 \end{document}

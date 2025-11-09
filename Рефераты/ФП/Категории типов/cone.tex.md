@@ -1,4 +1,5 @@
 ```tikz
+\usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{xcolor}
 \usetikzlibrary{decorations.pathmorphing}
@@ -27,7 +28,7 @@
 |[alias=a]|a &
 \makebox[15mm]{
 \begin{tikzpicture}
-\filldraw[color=red!60, fill=red!5, very thick](0,0) ellipse (2 and 1);
+\filldraw[color=red!60, fill=red!5, very thick] (0,0) ellipse (1.7 and 0.7);
 \end{tikzpicture}
 }
 & |[alias=b]|b
@@ -55,7 +56,7 @@
 
 \begin{tikzpicture}
 \filldraw[color=red!60, fill=red!5, very thick](-1,0) circle (1.5);
-\fill[color=red!60, fill=red!5, very thick] (2.5,0) ellipse (1.5 and 0.5);
+\filldraw[color=red!60, fill=red!5, very thick] (2.5,0) ellipse (1.5 and 0.5);
 \draw[ultra thick, ->] (6.5,0) arc (0:220:1);
 \end{tikzpicture}
 \end{document}

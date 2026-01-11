@@ -10,8 +10,11 @@
 [Maths - Category Theory - Yoneda](https://www.euclideanspace.com/maths/discrete/category/higher/yoneda/index.htm) (картинки)
 [Free monads for less: Yoneda](http://comonad.com/reader/2011/free-monads-for-less-2/)
 [Free monads for less: Yielding IO](http://comonad.com/reader/2011/free-monads-for-less-3/)
-[[Type Arithmetic and the Yoneda Perspective.pdf]]
+Type Arithmetic and the Yoneda Perspective.pdf
 [Free Monads and the Yoneda Lemma](http://blog.higher-order.com/blog/2013/11/01/free-and-yoneda/)
+
+
+Ключ к понимаю, как найти «обратные» функторы? https://webhomes.maths.ed.ac.uk/~tl/categories/yoneda.pdf
 
 https://journeyinmath.wordpress.com/2021/10/29/yo/ — про сложность よ
 

@@ -171,8 +171,8 @@ import scala.concurrent.duration.*
 
 def longTask: IO[Unit] =  
   IO.println("Работа началась...")  
-    .productR(IO.sleep(10.seconds))                 // flatMap  
-    .productR(IO.println("Работа завершена!"))      // flatMap  
+    .productR(IO.sleep(10.seconds))                  // flatMap  
+    .productR(IO.println("Работа завершена!"))       // flatMap  
     .guarantee(IO.println("Освобождаем ресурсы...")) // финализатор!  
   
 def program: IO[Unit] = for  

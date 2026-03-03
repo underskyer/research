@@ -190,22 +190,31 @@ fibers.main(Array.empty)
 ```
 «Ресурсы освобождаются» в любом случае, даже если «работа не завершена».
 
+Механизм безопасной отмены позволяет, например, организовать гонку (race) волокон:
 ```scala
-def fetchData(source: String, delay: FiniteDuration): IO[String] =
-  (IO.sleep(delay) *> IO.pure(s"Данные из $source"))
-    .guarantee(IO.println(s"Запрос к $source завершен или прерван"))
-
-def raceExample: IO[Unit] =
-  for
-    // Запускаем гонку между тремя источниками
-    winner <- IO.race(
-      fetchData("Сервер А", 10.seconds),
-      fetchData("Сервер Б", 1.second)
-    )
-    result = winner.merge // Извлекаем результат победителя (Б)
-    _ <- IO.println(s"Победитель: $result")
-  yield ()
+def fetchFromSource1: IO[String] =  
+  IO.println("Запрос к источнику 1") *>  
+  IO.sleep(2.seconds)  
+    .productR(IO.pure("Результат 1"))  
+    .onCancel(IO.println("Меня отменили!"))  
+  
+def fetchFromSource2: IO[String] =  
+  IO.println("Запрос к источнику 1") *>  
+  IO.sleep(1.seconds)  
+    .productR(IO.pure("Результат 2"))  
+    .onCancel(IO.println("Меня отменили!")) // это врядли  
+  
+def raceExample: IO[Unit] =  
+  IO.race(fetchFromSource1, fetchFromSource2) // IO[Either[String, String]]
+    .map(_.fold(identity, identity)) // здесь нам важен не победитель, а лишь его результат
+    .flatMap(IO.println)
+    
+// Запрос к источнику 1
+// Запрос к источнику 2
+// Меня отменили!
+// Результат 2
 ```
+Когда одна из задач завершается, то другая сразу отменяется.
 
 
 ### !!! Интеграция с Loom

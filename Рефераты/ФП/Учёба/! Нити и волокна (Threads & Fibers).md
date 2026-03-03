@@ -163,30 +163,49 @@ Task<D> Program(A a) =>
 
 В противоположность этому `Future` «жадно» запускает вычисления в момент создания. Мы не сможем запустить их повторно или по желанию приостановить, так как нет гарантий, что в логике корректно реализованы механизмы кооперативной отмены. Волокна CE/ZIO не полагаются на кооперативность: интерпретатор может *прервать* волокно при любом `flatMap` (и не только) на основании флага отмены, но предварительно выполнив пользовательскую финализацию. Кроме того, подготовленный план вычислений при необходимости можно дополнить любой стратегией перезапуска.
 
-
-
+Вот простой пример безопасной отмены волокна:
 ```scala
-import cats.effect.*
-import scala.concurrent.duration.*
-
-def longTask: IO[Unit] =  
-  IO.println("Работа началась...")  
-    .productR(IO.sleep(10.seconds))                  // flatMap  
-    .productR(IO.println("Работа завершена!"))       // flatMap  
-    .guarantee(IO.println("Освобождаем ресурсы...")) // финализатор!  
+import cats.effect.*  
+import scala.concurrent.duration.*  
   
-def program: IO[Unit] = for  
-  fiber <- longTask.start            // Запускаем в отдельном волокне  
-  _     <- IO.sleep(1.second)        // Ждем немного  
-  _     <- IO.println("Решили отменить...")  
-  _     <- fiber.cancel              // Принудительная отмена  
-yield ()
+object fibers extends IOApp.Simple:  
+  
+  def longTask: IO[Unit] =  
+    IO.println("Работа началась...")  
+      .productR(IO.sleep(10.seconds))                  // flatMap  
+      .productR(IO.println("Работа завершена!"))       // flatMap  
+      .guarantee(IO.println("Освобождаем ресурсы...")) // финализатор!  
+  
+  def run: IO[Unit] = for  
+    fiber <- longTask.start            // Запускаем в отдельном волокне  
+    _     <- IO.sleep(1.second)        // Ждем немного  
+    _     <- IO.println("Решили отменить...")  
+    _     <- fiber.cancel              // Принудительная отмена  
+  yield ()
 
+fibers.main(Array.empty)
 // Работа началась...
 // Решили отменить...
 // Освобождаем ресурсы...
 ```
-В данном примере «работа не завершена», но ресурсы всё равно освобождаются.
+«Ресурсы освобождаются» в любом случае, даже если «работа не завершена».
+
+```scala
+def fetchData(source: String, delay: FiniteDuration): IO[String] =
+  (IO.sleep(delay) *> IO.pure(s"Данные из $source"))
+    .guarantee(IO.println(s"Запрос к $source завершен или прерван"))
+
+def raceExample: IO[Unit] =
+  for
+    // Запускаем гонку между тремя источниками
+    winner <- IO.race(
+      fetchData("Сервер А", 10.seconds),
+      fetchData("Сервер Б", 1.second)
+    )
+    result = winner.merge // Извлекаем результат победителя (Б)
+    _ <- IO.println(s"Победитель: $result")
+  yield ()
+```
 
 
 ### !!! Интеграция с Loom

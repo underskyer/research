@@ -1,0 +1,70 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_20_11_2023_11_58__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2023_11_58__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2023_11_58__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2023_11_58__Changes_.xml	(revision 7534b87991b97ddd656640b290e541e2a106648c)
++++ /dev/null	(revision 7534b87991b97ddd656640b290e541e2a106648c)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_20_11_2023_11_58_[Changes]" date="1700470703092" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2023_11_58_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 20.11.2023 11:58 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1777308535400)
++++ b/.idea/modules.xml	(date 1777308535400)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/research.iml" filepath="$PROJECT_DIR$/.idea/research.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/research.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/research.iml b/.idea/research.iml
+new file mode 100644
+--- /dev/null	(date 1777308535397)
++++ b/.idea/research.iml	(date 1777308535397)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1777308535402)
++++ b/.idea/vcs.xml	(date 1777308535402)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2023_11_58_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_2023_11_58_[Changes]/shelved.patch
+deleted file mode 100644

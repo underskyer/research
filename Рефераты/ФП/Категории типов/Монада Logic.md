@@ -1,0 +1,1 @@
+https://hackage.haskell.org/package/logict-0.4.2/docs/Control-Monad-Logic.html

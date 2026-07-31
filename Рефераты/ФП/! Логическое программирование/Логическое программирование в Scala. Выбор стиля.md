@@ -173,6 +173,44 @@ extension [F[_]: Monad as F, G[_]: Traverse as G, A, B](afgb: A => F[G[B]])
 
 # Стиль логического программирования
 
+Наша программа (как и любая другая, представляет собой 
+```tikz
+
+\usetikzlibrary{automata, positioning, arrows.meta}
+
+\begin{document}
+\boldmath
+
+\begin{tikzpicture}[
+    ->,
+    >=Stealth,
+    auto,
+    transform shape,
+    every state/.style={thick, minimum size=1.2cm, align=center}
+]
+% Состояния
+\node[state, initial]   (Args)          {List[String]};
+\node[state]            (ScanUrl)       [right=1.6cm of Args] {ScanUrl};
+\node[state]            (ParsingContent) [right=1.5cm of ScanUrl] {Content,\\NumLimit};   % перенос строки через \\
+\node[state]            (Nums)          [right=2.5cm of ParsingContent] {List[Num]};
+\node[state]            (PrintedNums)   [right=4cm of Nums] {List[NumberPrinted]};
+\node[state, accepting] (ExitCode)      [right=1.5cm of PrintedNums] {ExitCode};
+% Переходы
+% Простая стрелка parseArgs
+\draw[->] (Args) -- node {parseArgs} (ScanUrl);
+% Две стрелки из ScanUrl в ParsingContent: одна сверху, одна снизу
+\draw[->] (ScanUrl) to[bend left=20] node[above] {loadUrl} (ParsingContent);
+\draw[->] (ScanUrl) to[bend right=20] node[below] {getLimit} (ParsingContent);
+% Остальные переходы
+\draw[->] (ParsingContent) -- node {contentParser} (Nums);
+\draw[->] (Nums) -- node {traverse(numberPrinter)} (PrintedNums);
+\draw[->] (PrintedNums) -- node {resulter} (ExitCode);
+\end{tikzpicture}
+\end{document}
+```
+
+
+
 Стиль логического программирования:
 ```scala
 def run(using args: List[String]) = Infer[IO[ExitCode]]

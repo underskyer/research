@@ -15,7 +15,7 @@ import cats.effect.{ExitCode, IO}
 
 type ArgsParser        = List[String]        => IO[ScanUrl]      // получаем url из списка аргументов
 type UrlLoader         = ScanUrl             => IO[Content]      // загружаем текст
-type LimitGetter       = Any                 => NumLimit         // получаем лимит
+type LimitGetter       = Any                 => IO[NumLimit]     // получаем лимит
 type ContentParser     = ParsingContent      => IO[List[Num]]    // извлекаем числа
 type NumberPrinter     = Num                 => IO[NumberPrinted]// выводим в консоль одно число
 type NumbersAggregator = List[NumberPrinted] => ExitCode         // определяем код выхода
@@ -65,7 +65,7 @@ given contentParser: ContentParser =
       .map(Num.apply)  
       .toList  
   
-given limitGetter: LimitGetter = _ => NumLimit(10) // хардкод для разнообразия  
+given limitGetter: LimitGetter = _ => IO.pure(NumLimit(10)) // хардкод для разнообразия  
   
 given numberPrinter: NumberPrinter = num =>  
   IO  
@@ -89,7 +89,7 @@ object ioApp extends IOApp:
   def run(args: List[String]) = for  
     url     <- argsParser(args)  
     content <- urlLoader(url)  
-    limit   =  limitGetter(())  
+    limit   <- limitGetter(())  
     nums    <- contentParser(content, limit)  
     printed <- nums.traverse(numberPrinter)  
   yield numbersAggregator(printed)
@@ -110,7 +110,7 @@ object ioApp extends IOApp:
 def run(args: List[String]) =  
   argsParser(args)  
     .flatMap(urlLoader)  
-    .tupleRight(limitGetter(()))  
+    .product(limitGetter(()))  
     .flatMap(contentParser)  
     .flatMap(_.traverse(numberPrinter))  
     .map(numbersAggregator)
@@ -123,7 +123,7 @@ def run(args: List[String]) =
 ```scala
 def run(args: List[String]) =  
   argsParser(args)            flatMap  
-  urlLoader                   tupleRight  
+  urlLoader                   product  
   limitGetter(())             flatMap  
   contentParser               flatMap  
   {_.traverse(numberPrinter)} map  
@@ -137,7 +137,9 @@ def run(args: List[String]) =
 
 # Функциональный стиль
 
-Сама суть функционального программирования заключается в оперировании не отдельными значениями, но сразу функциями. Когда нужно реализовать новую функцию, она строится не как последовательность команд, а как прямая *комбинация существующих функций*. В этом процессе вообще не участвуют локальные переменные, фиксирующие состояние исполнителя. По этой причине такой стиль также называют «бесточечным»
+Сама суть функционального программирования заключается в оперировании не отдельными значениями, но сразу функциями. Когда нужно реализовать новую функцию, она строится не как последовательность команд, а как прямая *комбинация существующих функций*. В этом процессе вообще не участвуют локальные переменные, фиксирующие состояние исполнителя. По этой причине такой стиль также называют «бесточечным».
+
+Нашу программу можно записать в функциональном бесточечном стиле так:
 ```scala
 val program =
   argsParser                     andThenF  
@@ -148,6 +150,26 @@ val program =
   
 def run(args: List[String]) = program(args)
 ```
+Комбинатор `andThenF` присутствует в Cats, но, к сожалению, там не достаёт других важных комбинаторов. Что-то похоже предоставляется для [стрелок Клейсли](https://typelevel.org/cats/datatypes/kleisli.html), но они сами не слишком удобны на практике. В любом случае недостающие комбинаторы легко реализуются вручную.
+
+### !!!! Спойлер !!! Недостающие комбинаторы
+Реализации недостающих комбинатор достаточно тривиальны:
+```scala
+extension [F[_]: Functor as F, A, B](afb: A => F[B])  
+  infix def andThenMap[C](bc: B => C): A => F[C] =  
+    afb andThen F.lift(bc)
+  
+extension [F[_]: Applicative as F, A, B](afb: A => F[B])  
+  infix def mergeF[AA >: A, C](afc: AA => F[C]): A => F[(B, C)] =  
+    (afb merge afc) andThen F.product  
+
+extension [F[_]: Monad as F, G[_]: Traverse as G, A, B](afgb: A => F[G[B]])  
+  infix def andThenTraverse[C](bfc: B => F[C]): A => F[G[C]] =  
+    afgb andThenF {_.traverse(bfc)}  
+```
+Можно было бы обойтись и 
+
+«Бесточечность» избавляет от упоминания любых значений
 
 # Стиль логического программирования
 

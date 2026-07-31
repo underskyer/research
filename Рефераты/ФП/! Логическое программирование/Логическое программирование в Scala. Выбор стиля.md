@@ -13,12 +13,12 @@ Scala, как и многие другие языки программирова
 ```scala
 import cats.effect.{ExitCode, IO}
 
-type ArgsParser        = List[String]        => IO[ScanUrl]      // получаем url из списка аргументов
-type UrlLoader         = ScanUrl             => IO[Content]      // загружаем текст
-type LimitGetter       = Any                 => IO[NumLimit]     // получаем лимит
-type ContentParser     = ParsingContent      => IO[List[Num]]    // извлекаем числа
-type NumberPrinter     = Num                 => IO[NumberPrinted]// выводим в консоль одно число
-type NumbersAggregator = List[NumberPrinted] => ExitCode         // определяем код выхода
+type ArgsParser    = List[String]        => IO[ScanUrl]      // получаем url из списка аргументов
+type UrlLoader     = ScanUrl             => IO[Content]      // загружаем текст
+type LimitGetter   = Any                 => IO[NumLimit]     // получаем лимит
+type ContentParser = ParsingContent      => IO[List[Num]]    // извлекаем числа
+type NumberPrinter = Num                 => IO[NumberPrinted]// выводим в консоль одно число
+type Resulter      = List[NumberPrinted] => ExitCode         // определяем код выхода
 ```
 Это верхнеуровневая бизнес-логика и для простоты мы не будем опускаться на уровень ООП-шных сервисов.
 
@@ -72,7 +72,7 @@ given numberPrinter: NumberPrinter = num =>
     .println(num.n)  
     .as(NumberPrinted())  
   
-given numbersAggregator: NumbersAggregator =  
+given resulter: Resulter =  
   case _ :: _ => ExitCode.Success  // если распечатали хоть что-то, то 0
   case Nil    => ExitCode.Error    // если ничего не нашлось, то 1
 ```
@@ -92,7 +92,7 @@ object ioApp extends IOApp:
     limit   <- limitGetter(())  
     nums    <- contentParser(content, limit)  
     printed <- nums.traverse(numberPrinter)  
-  yield numbersAggregator(printed)
+  yield resulter(printed)
 ```
 Это, конечно, не пресловутый [direct style](https://habr.com/ru/articles/1059768/), но разница не принципиальна — программа состоит из последовательности императивов (приказов) вида «передай переменную в функцию» и «положи вычисленный результат в переменную». Такой дедовской технике обучают ещё со школы и она привычна большинству программистов. На неё ориентированы инструменты разработчика и среда исполнения. И всё же, императивный стиль содержит ряд неустранимых недостатков, провоцирующих неочевидные ошибки.
 
@@ -113,7 +113,7 @@ def run(args: List[String]) =
     .product(limitGetter(()))  
     .flatMap(contentParser)  
     .flatMap(_.traverse(numberPrinter))  
-    .map(numbersAggregator)
+    .map(resulter)
 ```
 Его также называют «функциональным», но на самом деле это просто ООП-шный  паттерн «текучего интерфейса» ([fluent interface](https://ru.wikipedia.org/wiki/Fluent_interface)). Впрочем, даже в таком виде он почти полностью устраняет недостатки императивного стиля:
 - нет никаких мимолётных переменных, кроме `args` — практически невозможно запутаться и ошибиться;
@@ -127,7 +127,7 @@ def run(args: List[String]) =
   limitGetter(())             flatMap  
   contentParser               flatMap  
   {_.traverse(numberPrinter)} map  
-  numbersAggregator
+  resulter
 ```
 Обратите внимание: в левой колонке находится самое важное — наши бизнес-действия, а комбинаторы перенесены в правую колонку. И больше никаких «мусорных» точек и скобочек!
 
@@ -146,7 +146,7 @@ val program =
   (urlLoader mergeF limitGetter) andThenF  
   contentParser                  andThenTraverse  
   numberPrinter                  andThenMap  
-  numbersAggregator  
+  resulter  
   
 def run(args: List[String]) = program(args)
 ```
@@ -155,21 +155,21 @@ def run(args: List[String]) = program(args)
 ### !!!! Спойлер !!! Недостающие комбинаторы
 Реализации недостающих комбинатор достаточно тривиальны:
 ```scala
-extension [F[_]: Functor as F, A, B](afb: A => F[B])  
+extension [F[_] : Functor as F, A, B](afb: A => F[B])  
   infix def andThenMap[C](bc: B => C): A => F[C] =  
-    afb andThen F.lift(bc)
+    afb andThen bc.liftN[F]  
   
 extension [F[_]: Applicative as F, A, B](afb: A => F[B])  
-  infix def mergeF[AA >: A, C](afc: AA => F[C]): A => F[(B, C)] =  
+  infix def mergeF[C](afc: A => F[C]): A => F[(B, C)] =  
     (afb merge afc) andThen F.product  
-
+  
 extension [F[_]: Monad as F, G[_]: Traverse as G, A, B](afgb: A => F[G[B]])  
   infix def andThenTraverse[C](bfc: B => F[C]): A => F[G[C]] =  
-    afgb andThenF {_.traverse(bfc)}  
+    afgb andThenF (bfc.liftN[G] andThen G.sequence) // {_.traverse(bfc)}
 ```
-Можно было бы обойтись и 
+Можно было бы обойтись и без них, но с ними код становится приятнее.
 
-«Бесточечность» избавляет от упоминания любых значений
+«Бесточечность» избавляет от упоминания любых значений-состояний, вроде `args` и `()`. Код в функциональном стиле выглядит наиболее читаемым, выразительным и защищённом от возникновения ошибок. Ровно до тех пор, пока на сцене не появляется
 
 # Стиль логического программирования
 

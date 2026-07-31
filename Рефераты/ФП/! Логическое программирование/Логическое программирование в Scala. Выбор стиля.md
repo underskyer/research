@@ -14,11 +14,11 @@ Scala, как и многие другие языки программирова
 import cats.effect.{ExitCode, IO}
 
 type ArgsParser    = List[String]        => IO[ScanUrl]      // получаем url из списка аргументов
-type UrlLoader     = ScanUrl             => IO[Content]      // загружаем текст
+type ContentLoader = ScanUrl             => IO[Content]      // загружаем текст
 type LimitGetter   = Any                 => IO[NumLimit]     // получаем лимит
 type ContentParser = ParsingContent      => IO[List[Num]]    // извлекаем числа
-type NumberPrinter = Num                 => IO[NumberPrinted]// выводим в консоль одно число
-type Resulter      = List[NumberPrinted] => ExitCode         // определяем код выхода
+type NumberPrinter = Num                 => IO[PrintedNum]// выводим в консоль одно число
+type Resulter      = List[PrintedNum] => ExitCode         // определяем код выхода
 ```
 Это верхнеуровневая бизнес-логика и для простоты мы не будем опускаться на уровень ООП-шных сервисов.
 
@@ -29,7 +29,7 @@ case class Content(str: String)                           // Контент са
 case class NumLimit(n: Int)                               // Ограничение на количество чисел
 type ParsingContent = (content: Content, limit: NumLimit) // Контент с ограничением для разбора
 case class Num(n: Int)                                    // Искомые числа
-case class NumberPrinted()                                // Признак выполненой задачи печати
+case class PrintedNum()                                // Признак выполненой задачи печати
 ```
 Для сравнения стилей нам достаточно только типобезопасности, поэтому обойдёмся простыми `case class` вместо более строгих решений вроде [непрозрачных псевдонимов](https://docs.scala-lang.org/scala3/book/types-opaque-types.html) или [уточнённых типов](https://iltotore.github.io/iron/docs/overview.html).
 
@@ -45,18 +45,18 @@ import org.typelevel.log4cats.slf4j.Slf4jFactory
 
 given loggerFactory: LoggerFactory[IO] = Slf4jFactory.create[IO]  
   
-given argsParser: ArgsParser = args =>  
+given parseArgs: ArgsParser = args =>  
   IO  
     .fromOption(args.headOption)(new Throwable("Передайте Url!"))  
     .map(ScanUrl.apply)  
   
-given urlLoader: UrlLoader = url =>  
+given loadContent: ContentLoader = url =>  
   EmberClientBuilder  
     .default[IO].build  
     .use(_.expect[String](url.str))  
     .map(Content.apply)  
   
-given contentParser: ContentParser =  
+given extractNumbers: ContentParser =  
   case (content, limit) => IO.blocking: // для ОЧЕНЬ БОЛЬШИХ файлов и лимитов
     "\\d+".r  
       .findAllIn(content.str)  // ищеем подстроки из цифр
@@ -65,19 +65,19 @@ given contentParser: ContentParser =
       .map(Num.apply)  
       .toList  
   
-given limitGetter: LimitGetter = _ => IO.pure(NumLimit(10)) // хардкод для разнообразия  
+given obtainLimit: LimitGetter = _ => IO.pure(NumLimit(10)) // хардкод для разнообразия  
   
-given numberPrinter: NumberPrinter = num =>  
+given printNumber: NumberPrinter = num =>  
   IO  
     .println(num.n)  
-    .as(NumberPrinted())  
+    .as(PrintedNum())  
   
-given resulter: Resulter =  
+given calcExitCode: Resulter =  
   case _ :: _ => ExitCode.Success  // если распечатали хоть что-то, то 0
   case Nil    => ExitCode.Error    // если ничего не нашлось, то 1
 ```
 
-В глаза сразу бросается «толстый намёк» в виде `given`, но пока можете не обращать внимания. По сути, это обычные переменные `val` только с опцией *размещения значений в контекст* области видимости. Шаги и их реализации нарочно выбраны «разношёрстными»: есть функции с эффектом `IO` и «простые» (`numbersAggregator`, `limitGetter`), с одним аргументом и с несколькими (`contentParser`). Это позволяет захватить больше аспектов типичного программного продукта.
+В глаза сразу бросается «толстый намёк» в виде `given`, но пока можете не обращать внимания. По сути, это обычные переменные `val` только с опцией *размещения значений в контекст* области видимости. Шаги и их реализации нарочно выбраны «разношёрстными»: есть функции с эффектом `IO` и «простые» (`numbersAggregator`, `obtainLimit`), с одним аргументом и с несколькими (`extractNumbers`). Это позволяет захватить больше аспектов типичного программного продукта.
 
 # Императивный стиль
 
@@ -87,19 +87,19 @@ import cats.syntax.all.*
 
 object ioApp extends IOApp:
   def run(args: List[String]) = for  
-    url     <- argsParser(args)  
-    content <- urlLoader(url)  
-    limit   <- limitGetter(())  
-    nums    <- contentParser(content, limit)  
-    printed <- nums.traverse(numberPrinter)  
-  yield resulter(printed)
+    url     <- parseArgs(args)  
+    content <- loadContent(url)  
+    limit   <- obtainLimit(())  
+    nums    <- extractNumbers(content, limit)  
+    printed <- nums.traverse(printNumber)  
+  yield calcExitCode(printed)
 ```
 Это, конечно, не пресловутый [direct style](https://habr.com/ru/articles/1059768/), но разница не принципиальна — программа состоит из последовательности императивов (приказов) вида «передай переменную в функцию» и «положи вычисленный результат в переменную». Такой дедовской технике обучают ещё со школы и она привычна большинству программистов. На неё ориентированы инструменты разработчика и среда исполнения. И всё же, императивный стиль содержит ряд неустранимых недостатков, провоцирующих неочевидные ошибки.
 
 Самая большая его проблема связана со «стеком» — областью видимости, в которую практически каждая команда добавляет новые переменные. Каждая несёт семантическую нагрузку, хотя большинство переменных используется единственный раз в следующей же команде, а в остальном блоке кода они теряют свою полезность. Код становится перегруженным избыточной семантикой, что мешает воспринимать его целиком. Кроме того
 - в стеке накапливаются «мусорные» переменные которые могут по ошибке использоваться вместо нужных (в наших примерах мы хорошо защищены типами, но в реальных проектах встречалось и не такое безобразие),
 - какие-то вычисленные переменные могут быть вообще забыты благодаря перегрузкам функций (компилятор обычно об этом предупреждает, но всё равно пропускает),
-- порядок шагов может быть перепутан, особенно когда игнорируются результаты выполнения команд; в лучшем случае это даст неоптимальные алгоритмы (если вызов `limitGetter` переместить в начало, то это вычисление окажется лишним, когда в программу даже не передали адрес сайта), а в худшем неправильный порядок эффектов приведёт к согласованному состоянию.
+- порядок шагов может быть перепутан, особенно когда игнорируются результаты выполнения команд; в лучшем случае это даст неоптимальные алгоритмы (если вызов `obtainLimit` переместить в начало, то это вычисление окажется лишним, когда в программу даже не передали адрес сайта), а в худшем неправильный порядок эффектов приведёт к согласованному состоянию.
 
 Бывает сложно обнаружить даже *сбои*, порождённые такими ошибками.
 
@@ -108,12 +108,12 @@ object ioApp extends IOApp:
 Императивный стиль часто противопоставляют «монадическому»:
 ```scala
 def run(args: List[String]) =  
-  argsParser(args)  
-    .flatMap(urlLoader)  
-    .product(limitGetter(()))  
-    .flatMap(contentParser)  
-    .flatMap(_.traverse(numberPrinter))  
-    .map(resulter)
+  parseArgs(args)  
+    .flatMap(loadContent)  
+    .product(obtainLimit(()))  
+    .flatMap(extractNumbers)  
+    .flatMap(_.traverse(printNumber))  
+    .map(calcExitCode)
 ```
 Его также называют «функциональным», но на самом деле это просто ООП-шный  паттерн «текучего интерфейса» ([fluent interface](https://ru.wikipedia.org/wiki/Fluent_interface)). Впрочем, даже в таком виде он почти полностью устраняет недостатки императивного стиля:
 - нет никаких мимолётных переменных, кроме `args` — практически невозможно запутаться и ошибиться;
@@ -122,31 +122,31 @@ def run(args: List[String]) =
 Некоторым программистам «монадический» стиль не нравится потому, что тут много точек, скобок и тяжеловесных `flatMap`, а пробелов, упрощающих чтение, не хватает. Но тот же самый код можно записать чуть по-другому, используя *инфиксную форму* вызова этих методов:
 ```scala
 def run(args: List[String]) =  
-  argsParser(args)            flatMap  
-  urlLoader                   product  
-  limitGetter(())             flatMap  
-  contentParser               flatMap  
-  {_.traverse(numberPrinter)} map  
-  resulter
+  parseArgs(args)           flatMap  
+  loadContent               product  
+  obtainLimit(())           flatMap  
+  extractNumbers            flatMap  
+  {_.traverse(printNumber)} map  
+  calcExitCode
 ```
-Обратите внимание: в левой колонке находится самое важное — наши бизнес-действия, а комбинаторы перенесены в правую колонку. И больше никаких «мусорных» точек и скобочек!
+Обратите внимание: в левой колонке находится самое важное — последовательность нашиъ бизнес-действий, а комбинаторы перенесены в правую колонку. И больше никаких «мусорных» точек и скобочек!
 
-По аналогии со стрелочками `<-` из `for`-выражений можно было бы использовать символьные псевдонимы комбинаторов вроде `>>=`. Но полезных комбинаторов оказывается весьма много для запоминания их псевдонимов. Кроме того, символьные и буквенные комбинаторы плохо сочетаются, так как у них разный приоритет в Scala (да и читаться будет ужасненько). Так что лучше использовать только буквенные комбинаторы.
+По аналогии со стрелочками `<-` из `for`-выражений можно было бы использовать символьные псевдонимы комбинаторов вроде `>>=`. Но полезных комбинаторов оказывается весьма много для запоминания их псевдонимов. Кроме того, символьные и буквенные операторы плохо сочетаются, так как у них разный приоритет в Scala (да и читаться будет ужасненько). Так что лучше использовать только буквенные комбинаторы.
 
 «Монадический» стиль неплохо справляется со своей задачей, но ещё более простым и выразительным оказывается истинно
 
 # Функциональный стиль
 
-Сама суть функционального программирования заключается в оперировании не отдельными значениями, но сразу функциями. Когда нужно реализовать новую функцию, она строится не как последовательность команд, а как прямая *комбинация существующих функций*. В этом процессе вообще не участвуют локальные переменные, фиксирующие состояние исполнителя. По этой причине такой стиль также называют «бесточечным».
+Сама суть функционального программирования заключается в оперировании не отдельными значениями, но сразу функциями. Когда нужно реализовать новую функцию, она строится не как последовательность команд, а как прямая *комбинация существующих функций*. В таком процессе вообще не участвуют локальные переменные, фиксирующие состояние исполнителя. Поэтому такой стиль также называют «бесточечным».
 
 Нашу программу можно записать в функциональном бесточечном стиле так:
 ```scala
 val program =
-  argsParser                     andThenF  
-  (urlLoader mergeF limitGetter) andThenF  
-  contentParser                  andThenTraverse  
-  numberPrinter                  andThenMap  
-  resulter  
+  parseArgs                        andThenF  
+  (loadContent mergeF obtainLimit) andThenF  
+  extractNumbers                   andThenTraverse  
+  printNumber                      andThenMap  
+  calcExitCode  
   
 def run(args: List[String]) = program(args)
 ```
@@ -173,7 +173,7 @@ extension [F[_]: Monad as F, G[_]: Traverse as G, A, B](afgb: A => F[G[B]])
 
 # Стиль логического программирования
 
-Наша программа (как и любая другая, представляет собой 
+Любую программу можно рассматривать как конечный автомат, в котором исполнитель переходит от одного состояния к другому. В нашем случае получается такая картина:
 ```tikz
 
 \usetikzlibrary{automata, positioning, arrows.meta}
@@ -192,30 +192,32 @@ extension [F[_]: Monad as F, G[_]: Traverse as G, A, B](afgb: A => F[G[B]])
 \node[state, initial]   (Args)          {List[String]};
 \node[state]            (ScanUrl)       [right=1.6cm of Args] {ScanUrl};
 \node[state]            (ParsingContent) [right=1.5cm of ScanUrl] {Content,\\NumLimit};   % перенос строки через \\
-\node[state]            (Nums)          [right=2.5cm of ParsingContent] {List[Num]};
-\node[state]            (PrintedNums)   [right=4cm of Nums] {List[NumberPrinted]};
-\node[state, accepting] (ExitCode)      [right=1.5cm of PrintedNums] {ExitCode};
+\node[state]            (Nums)          [right=2.7cm of ParsingContent] {List[Num]};
+\node[state]            (PrintedNums)   [right=3.8cm of Nums] {List[PrintedNum]};
+\node[state, accepting] (ExitCode)      [right=2.5cm of PrintedNums] {ExitCode};
+
 % Переходы
-% Простая стрелка parseArgs
 \draw[->] (Args) -- node {parseArgs} (ScanUrl);
-% Две стрелки из ScanUrl в ParsingContent: одна сверху, одна снизу
 \draw[->] (ScanUrl) to[bend left=20] node[above] {loadUrl} (ParsingContent);
 \draw[->] (ScanUrl) to[bend right=20] node[below] {getLimit} (ParsingContent);
-% Остальные переходы
-\draw[->] (ParsingContent) -- node {contentParser} (Nums);
-\draw[->] (Nums) -- node {traverse(numberPrinter)} (PrintedNums);
-\draw[->] (PrintedNums) -- node {resulter} (ExitCode);
+\draw[->] (ParsingContent) -- node {extractNumbers} (Nums);
+\draw[->] (Nums) -- node {traverse(printNumber)} (PrintedNums);
+\draw[->] (PrintedNums) -- node {calcExitCode} (ExitCode);
+
 \end{tikzpicture}
 \end{document}
 ```
 
+Переходы у нас описываются сигнатурами бизнес-функций и типы состояний уникальны. Поэтому имея набор реализаций этих функции у нас остаётся лишь *единственный* способ собрать из них нужный конечный автомат. Независимо от выбранного стиля, в итоге мы получим одну и ту же композицию. С такой точки зрения, описание нашей программы даже в функциональном стиле выглядит попросту избыточным.
 
-
-Стиль логического программирования:
+Scala позволяет *автоматизировать* единственную минималистичную композицию функций в нужную сигнатуру, если сами функции это вообще позволяют. С такой автоматизацией мы сможем просто приказать компилятору *вывести* (infer) реализацию программы, чем *сразу закроем все вопросы о стиле*:
 ```scala
 def run(using args: List[String]) = Infer[IO[ExitCode]]
 ```
 
+Мы получили не что иное, как воплощение концепции **логического программирования** на практике! Связь с математической логикой осуществляется здесь через [изоморфизм Карри-Ховарда](https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D1%81%D1%82%D0%B2%D0%B8%D0%B5_%D0%9A%D0%B0%D1%80%D1%80%D0%B8_%E2%80%94_%D0%A5%D0%BE%D0%B2%D0%B0%D1%80%D0%B4%D0%B0). Типы ассоциируются с *утверждениями*, истинность которых определяется обитаемостью типа, а *доказательством истинности* выступают его значения. 
 
-Уникальность типов моделей предметной области 
+Описанные в начале статьи типы бизнес-функций `A => IO[B]` объявляют *теоремы*, в которых из истинности (обитаемости) `A` следует истинность (обитаемость) `IO[B]`. Реализации же этих функций являются доказательствами теорем. Мы размещаем их в контекст с помощью ключевого слова `given` так, чтобы всегда можно по теореме найти её доказательство (`тип => значение`). Выражение `Infer[IO[ExitCode]]` заставляет компилятор найти в контексте подходящие доказанные теоремы (в том числе и `args: List[String]`) и с их помощью *вывести* доказательство обитаемости `IO[ExitCode]` — алгоритм вычисления его значения!
+
+В следующих частях обзора мы обсудим логику работы `Infer`, теоретический фундамент логического программирования, его плюсы и минусы, а также особенности его реализации в Scala. Сейчас же предлагаю задуматься, насколько проще могла бы выглядеть современная кодовая база, если бы доминирующей стала парадигма логического программирования и именно на неё были бы ориентированы компиляторы, среды исполнения, инструменты разработки, система обучения и даже самого мышления программистов!
 

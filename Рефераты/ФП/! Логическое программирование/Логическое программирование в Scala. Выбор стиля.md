@@ -1,3 +1,5 @@
+![[Scala + Prolog.png]]
+
 Это первая часть небольшого цикла, посвящённого логическому программированию на языке Scala. Здесь мы сравним несколько стилей кодирования модельной программы в тенденции к упрощению кода. Такой подход призван послужить мотиватором к изучению данной темы.
 
 # Моделирование задачи
@@ -187,14 +189,23 @@ extension [F[_]: Monad as F, G[_]: Traverse as G, A, B](afgb: A => F[G[B]])
     >=Stealth,
     auto,
     transform shape,
-    every state/.style={thick, minimum size=1.2cm, align=center}
+    line width=2pt,
+    every state/.style={
+        ultra thick,                     % толщина границы узлов
+        minimum size=1.2cm,
+        align=center,
+        font=\bfseries             % жирный шрифт внутри узлов
+    },
+    every node/.style={
+        font=\bfseries             % жирный шрифт для всех меток
+    }
 ]
 % Состояния
 \node[state, initial]   (Args)          {List[String]};
-\node[state]            (ScanUrl)       [right=1.6cm of Args] {ScanUrl};
+\node[state]            (ScanUrl)       [right=1.8cm of Args] {ScanUrl};
 \node[state]            (ParsingContent) [right=1.5cm of ScanUrl] {Content,\\NumLimit};   % перенос строки через \\
-\node[state]            (Nums)          [right=2.7cm of ParsingContent] {List[Num]};
-\node[state]            (PrintedNums)   [right=3.8cm of Nums] {List[PrintedNum]};
+\node[state]            (Nums)          [right=2.9cm of ParsingContent] {List[Num]};
+\node[state]            (PrintedNums)   [right=4cm of Nums] {List[PrintedNum]};
 \node[state, accepting] (ExitCode)      [right=2.5cm of PrintedNums] {ExitCode};
 
 % Переходы

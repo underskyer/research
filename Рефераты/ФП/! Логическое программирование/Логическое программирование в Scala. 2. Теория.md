@@ -26,9 +26,10 @@ natNumber  = ZERO | ( SUCC , nat ) ;
 
 Последняя строчка утверждает, что натуральным числом будет называться либо строчка `z`, либо строчка, собранная из другого натурального числа, записанного после символа `s`. Число 4 будет переводиться на этот язык как `ssssz`.
 
-- языки программирования  ([Scala](https://docs.scala-lang.org/scala3/reference/syntax.html), [Go](https://kuree.gitbooks.io/the-go-programming-language-report/content/18/text.html), [Python](https://pypi.org/project/bnf/), [SQL](https://ronsavage.github.io/SQL/), [XQuery](https://www.w3.org/TR/xquery-30/) и прочие)
-- языки описания данных (XML, JSON, YAML)
-
+- языки программирования  ([Scala](https://docs.scala-lang.org/scala3/reference/syntax.html), [Prolog](https://github.com/simonkrenger/ch.bfh.bti7064.w2013.PrologParser/blob/master/doc/prolog-bnf-grammar.txt), [Go](https://kuree.gitbooks.io/the-go-programming-language-report/content/18/text.html), [Python](https://pypi.org/project/bnf/), [SQL](https://ronsavage.github.io/SQL/), [XQuery](https://www.w3.org/TR/xquery-30/)…)
+- языки описания данных ([XML](https://www.liquid-technologies.com/Reference/Glossary/XML_EBNF1.1.html), [JSON](https://datatracker.ietf.org/doc/html/rfc8259), [YAML](https://github.com/yaml/yaml-grammar)…)
+- онтологические или философские языки (OWL, Ложбан, IEML)
+	
 - **Ложбан (Lojban)**: Это наиболее яркий пример. Грамматика Ложбана с самого начала проектировалась как формальная и однозначная. В 21-й главе «The Complete Lojban Language» приведена полная грамматика языка, описанная в нотации YACC (инструмент для создания синтаксических анализаторов, который использует грамматику, очень близкую к БНФ). Существуют также версии этой грамматики в формате **Extended BNF**.
 - **OWL (Web Ontology Language)**: Этот язык, используемый для семантической сети, имеет строгое формальное определение. Спецификация W3C включает описание синтаксиса OWL, в том числе в формате **БНФ**. Это относится как к абстрактному синтаксису, так и к конкретным синтаксисам, например, Functional-Style Syntax.
 - **IEML (Information Economy MetaLanguage)**: Создатели этого языка также подчеркивают его формальную природу. Упоминается, что он имеет **формальную грамматику** и описывается как **регулярный язык**. В одном из источников есть прямое указание на описание синтаксиса в форме **БНФ**.

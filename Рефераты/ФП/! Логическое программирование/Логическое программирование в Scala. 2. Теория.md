@@ -26,10 +26,10 @@ natNumber  = ZERO | ( SUCC , nat ) ;
 
 Последняя строчка утверждает, что натуральным числом будет называться либо строчка `z`, либо строчка, собранная из другого натурального числа, записанного после символа `s`. Число 4 будет переводиться на этот язык как `ssssz`.
 
-- языки программирования  ([Scala](https://docs.scala-lang.org/scala3/reference/syntax.html), [Prolog](https://github.com/simonkrenger/ch.bfh.bti7064.w2013.PrologParser/blob/master/doc/prolog-bnf-grammar.txt), [Go](https://kuree.gitbooks.io/the-go-programming-language-report/content/18/text.html), [Python](https://pypi.org/project/bnf/), [SQL](https://ronsavage.github.io/SQL/), [XQuery](https://www.w3.org/TR/xquery-30/)…)
-- языки описания данных ([XML](https://www.liquid-technologies.com/Reference/Glossary/XML_EBNF1.1.html), [JSON](https://datatracker.ietf.org/doc/html/rfc8259), [YAML](https://github.com/yaml/yaml-grammar)…)
-- онтологические или философские языки ([OWL](https://www.w3.org/TR/owl2-syntax/), [Ложбан](https://www.lojban.org/publications/formal-grammars/bnf.300.txt)…)
-- математические языки 
+- языки описания данных: [XML](https://www.liquid-technologies.com/Reference/Glossary/XML_EBNF1.1.html), [JSON](https://datatracker.ietf.org/doc/html/rfc8259), [YAML](https://github.com/yaml/yaml-grammar)…
+- онтологические или философские языки: [OWL](https://www.w3.org/TR/owl2-syntax/), [Ложбан](https://www.lojban.org/publications/formal-grammars/bnf.300.txt)…
+- математические языки: различные формальные логики, λ-исчисления, теории типов…
+- языки программирования: [Scala](https://docs.scala-lang.org/scala3/reference/syntax.html), [Prolog](https://github.com/simonkrenger/ch.bfh.bti7064.w2013.PrologParser/blob/master/doc/prolog-bnf-grammar.txt), [Go](https://kuree.gitbooks.io/the-go-programming-language-report/content/18/text.html), [Python](https://pypi.org/project/bnf/), [SQL](https://ronsavage.github.io/SQL/), [XQuery](https://www.w3.org/TR/xquery-30/)…
 
 ## Исчисление секвенций
 

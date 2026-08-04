@@ -26,11 +26,11 @@ lparen   = '(' ;
 rparen   = ')' ;
 
 (* Синтаксические правила *)
-term       = variable
-           | abstraction
-           | application ;
+term = variable
+     | abstraction
+     | application ;
 
-variable   = id ;
+variable    = id ;
 abstraction = lambda , id , dot , term ;
 application = lparen , term , term , rparen ;
 ```

@@ -35,16 +35,16 @@ abstraction = lambda , id , dot , term ;
 application = lparen , term , term , rparen ;
 ```
 
-Нотация Бекуса-Наура со всеми своими расширениями используется для описания самых разных языков:
+Нотация Бекуса-Наура используется для описания самых разных языков:
 - языки описания данных: [XML](https://www.liquid-technologies.com/Reference/Glossary/XML_EBNF1.1.html), [JSON](https://datatracker.ietf.org/doc/html/rfc8259), [YAML](https://github.com/yaml/yaml-grammar)…
 - онтологические или философские языки: [OWL](https://www.w3.org/TR/owl2-syntax/), [Ложбан](https://www.lojban.org/publications/formal-grammars/bnf.300.txt)…
-- математические языки: формальные логики, λ-исчисления, теории типов…
+- математические языки: формальные логики, λ-исчисление и теория типов со всеми расширениями и т.п…
 - языки программирования: [Scala](https://docs.scala-lang.org/scala3/reference/syntax.html), [Prolog](https://github.com/simonkrenger/ch.bfh.bti7064.w2013.PrologParser/blob/master/doc/prolog-bnf-grammar.txt), [Go](https://kuree.gitbooks.io/the-go-programming-language-report/content/18/text.html), [Python](https://pypi.org/project/bnf/), [SQL](https://ronsavage.github.io/SQL/), [XQuery](https://www.w3.org/TR/xquery-30/)…
 - и, конечно же, сама РБНФ.
 
 ## Исчисление секвенций
 
-Синтаксис статичен, и для некоторых языков вроде JSON или YAML этого вполне достаточно. Но когда мы решаем реальную задачу, нам нужно не только описать 
+Синтаксис статичен, и для некоторых языков вроде JSON или YAML этого вполне достаточно. Но когда мы решаем реальную задачу, нам нужно не только описать её условие и искомый результат на модельном языке, но и *преобразовать* этот текст в итоговое решение *согласно семантике* задачи.
 
 ```ebnf
 <секвенция> ::= <список_формул> "⊢" <список_формул>

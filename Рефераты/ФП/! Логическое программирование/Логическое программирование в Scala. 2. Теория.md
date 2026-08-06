@@ -80,13 +80,15 @@ $$
 \frac{\Gamma \vdash \Delta ,\mathbf{A}\quad \mathbf{A},\Theta \vdash \Lambda }{\Gamma ,\Theta \vdash \Delta ,\Lambda }.
 $$
 Данное правило и определят суть термина «секвенция» — под записью $\Gamma \vdash \Delta$ может скрываться 
-целая *последовательность* (sequence) промежуточных выводов.
+целая *последовательность* (sequence) промежуточных выводов, которую иногда записывают в виде многоэтажной дроби.
 
 Если в числителе нет ни одной секвенции, значит такое правило определяет *аксиому* — безусловное правило, вроде логического тождества $\frac{}{A \vdash A}$.
 
-Аксиомы теории вводятся как дроби без «числителя». В частности, классическая логика содержит  
 
 
+$$
+{\displaystyle {\cfrac {\cfrac {\cfrac {\cfrac {\cfrac {A\ \rightarrow \ A\qquad }{\qquad \quad \rightarrow \ A,\ \lnot A\qquad }}{\qquad \qquad \rightarrow \ A,\ A\lor \lnot A\quad }}{\qquad \quad \rightarrow \ A\lor \lnot A,\ A}}{\qquad \qquad \qquad \ \rightarrow \ A\lor \lnot A,\ A\lor \lnot A\quad }}{\quad \ \rightarrow \ A\lor \lnot A}}}
+$$
 
 ## Рассуждения
 

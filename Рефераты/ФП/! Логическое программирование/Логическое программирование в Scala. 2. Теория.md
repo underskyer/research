@@ -112,6 +112,12 @@ $$
 
 # Пролог
 
+![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)  
+$$
+\frac{\Gamma \vdash B\quad \Gamma \vdash C}{\Gamma \vdash A}
+$$
+
+
 В классическом Прологе нет явного деления на множество различных правил вывода (как в логике генценовского типа), вместо этого используется одно универсальное правило — **SLD-резолюция** (Selective Linear Definite clause resolution).
 
 - **SLD-резолюция**: Единственное фундаментальное правило вывода. Если есть цель (квери) \(\leftarrow G_1, G_2, ..., G_m\) и правило \(H \leftarrow B_1, ..., B_k\), причем \(G_{1}\) и \(H\) унифицируются с подстановкой \(\theta \), то выводится новая цель: \(\leftarrow (B_1, ..., B_k, G_2, ..., G_m)\theta\).

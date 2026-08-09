@@ -140,19 +140,13 @@ $$
 ```
 
 ![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)$$
-\begin{eqnarray}
-&\frac{}{\vdash отец(иван, петр)}
-\quad
-\frac{}{\vdash отец(петр, анна)}
-\quad
-\frac{\vdash отец(X, Y) \quad \vdash отец(Y, Z)}{\vdash дедушка(X, Z)}
-
-\\
-&\exists X. дедушка(X, анна)
-\end{eqnarray}
+P_1\colon \frac{}{\vdash отец(иван, петр)}
+\qquad
+P_2\colon \frac{}{\vdash отец(петр, анна)}
+\qquad
+R\colon \frac{\vdash отец(X, Y) \quad \vdash отец(Y, Z)}{\vdash дедушка(X, Z)}
 $$
-\frac{\Gamma \vdash B\quad \Gamma \vdash C}{\Gamma \vdash A}
-$$
+$\exists W. дедушка(W, анна)$
 
 Связь между «пустым числителем» и доказательством истинности в Прологе становится кристально ясной, если посмотреть на этот процесс через призму метода, которым Пролог пользуется — ==**доказательства от противного (резолюция)**==.
 

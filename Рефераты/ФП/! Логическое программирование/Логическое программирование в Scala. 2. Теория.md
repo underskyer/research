@@ -129,18 +129,26 @@ $$
 
 ```prolog
 % Факты (Аксиомы)
-родитель(иван, петр).   % Иван — родитель Петра
-родитель(петр, анна).   % Петр — родитель Анны
+отец(иван, петр).
+отец(петр, анна).
 
 % Правило
-дедушка(X, Y) :- родитель(X, Z), родитель(Z, Y).
+дедушка(X, Y) :- отец(X, Z), отец(Z, Y).
+
+% Запрос
+?- дедушка(Who, анна).
 ```
 
-$$
-\infer[\text{∀L (с }X=pam,\;Z=ann,\;Y=bob\text{) и ∀L (с }W=pam\text{)}]{ P_1,\;P_2,\;R,\;Q \vdash \bot }{ \infer[\rightarrow L]{ P_1,\;P_2,\;(P_1\land P_2 \to \text{grandfather}(pam,ann)),\; \neg\text{grandfather}(pam,ann) \vdash \bot }{ \infer[\land R]{ P_1,\;P_2 \vdash P_1\land P_2 }{ P_1 \vdash P_1 & P_2 \vdash P_2 } & \infer[\neg L]{ \neg\text{grandfather}(pam,ann),\; \text{grandfather}(pam,ann) \vdash \bot }{ \neg\text{grandfather}(pam,ann) \vdash \neg\text{grandfather}(pam,ann) & \text{grandfather}(pam,ann) \vdash \text{grandfather}(pam,ann) } } }
-$$
+![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)$$
+\frac{}{\vdash отец(иван, петр)}
+\quad
+\frac{}{\vdash отец(петр, анна)}
+\quad
+\frac{}{\vdash отец(петр, анна)}
 
-![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)  
+\quad
+\quad
+
 $$
 \frac{\Gamma \vdash B\quad \Gamma \vdash C}{\Gamma \vdash A}
 $$

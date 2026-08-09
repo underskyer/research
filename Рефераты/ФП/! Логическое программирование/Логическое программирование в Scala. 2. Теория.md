@@ -140,15 +140,16 @@ $$
 ```
 
 ![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)![](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)$$
-\frac{}{\vdash отец(иван, петр)}
+\begin{eqnarray}
+&\frac{}{\vdash отец(иван, петр)}
 \quad
 \frac{}{\vdash отец(петр, анна)}
 \quad
-\frac{}{\vdash отец(петр, анна)}
+\frac{\vdash отец(X, Y) \quad \vdash отец(Y, Z)}{\vdash дедушка(X, Z)}
 
-\quad
-\quad
-
+\\
+&\exists X. дедушка(X, анна)
+\end{eqnarray}
 $$
 \frac{\Gamma \vdash B\quad \Gamma \vdash C}{\Gamma \vdash A}
 $$

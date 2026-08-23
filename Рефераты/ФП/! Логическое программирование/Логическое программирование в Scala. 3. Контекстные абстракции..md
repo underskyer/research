@@ -4,7 +4,33 @@
 Match Types — зависят от свидетельств равенства типов, лежащих в контексте
 
 `NoGiven[A =:= B]`
+`=:=`, `<:<`, `=:!=`
+### Операции времени компиляции (Compile-time Operations)
 
+Пакет `scala.compiletime` предоставляет методы, которые исполняются исключительно на этапе компиляции[](https://docs.scala-lang.org/scala3/guides/macros/compiletime.html). Они позволяют писать код, который ведёт себя по-разному в зависимости от информации, известной только во время компиляции.
+
+- **`summonFrom`**: Позволяет выполнить условный поиск неявного экземпляра. Это аналог `NotGiven`, но с более гибкой логикой[](https://stackoverflow.com/questions/75779797/type-negation-in-scala-3/75807549#75807549#1).
+    
+    scala
+    
+    import scala.compiletime.summonFrom
+    inline def checkForString: String = summonFrom {
+      case given String => "String найден!"
+      case _ => "String не найден."
+    }
+    
+    Обратите внимание: паттерн должен быть в виде `given T` или `x: T`[](https://docs.scala-lang.org/scala3/reference/error-codes/E153.html).
+    
+- **`summonInline`**: Похож на обычный `using`-параметр, но поиск неявного значения выполняется **после** инлайнинга кода[](https://docs.scala-lang.org/scala3/guides/macros/compiletime.html). Это может быть полезно для оптимизации и устранения мёртвых ветвей кода.
+    
+- **`summonAll`**: Позволяет найти несколько неявных значений для типов, перечисленных в кортеже[](https://docs.scala-lang.org/scala3/guides/macros/compiletime.html).
+    
+- **`erasedValue`**: Позволяет выполнить сопоставление с типом, не имея значения этого типа во время выполнения. Нужно только для управления потоком компиляции.
+    
+- **`constValue`**: Позволяет получить значение литерала (например, числа или строки), известное на этапе компиляции.
+    
+
+### 🧩 Типы-сопоставления (Match Types)
 # Сложности и перспективы
 
 #### Недостатки

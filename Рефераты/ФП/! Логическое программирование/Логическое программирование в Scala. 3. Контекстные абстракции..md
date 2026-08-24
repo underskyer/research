@@ -1,7 +1,6 @@
 
 
 
-
 - встроенные неявные экземпляры
 	- неявные преобразования подтипизации: не только от типа класса наследника к базовому, но и между примитивными типами, вроде `Short <: Int`.
 	- экземпляры встроенных отношений типов: `=:=`, `<:<`, `=:!=`.
@@ -10,11 +9,26 @@
 		- `scala.reflect.{ClassTag, TypeTag, TypeTest, Manifest}`
 		- `scala.deriving.Mirror`
 	- `scala.{CanEqual, ValueOf}`
-		
+
+
+- Implicit Conversion
+- Given Parameters
+- Context Bounds (классы типов)
 
 ### Правила поиска
 
+[Where does Scala look for implicits?](https://stackoverflow.com/questions/5598085/where-does-scala-look-for-implicits)
 
+- Локальный контекст
+	- **Локальные объявления:** неявные значения (`implicit val`/`implicit def` в Scala 2 или `given` в Scala 3), объявленные прямо в текущем блоке кода, методе или классе.
+	- **Родительские области:** значения, объявленные во внешних (охватывающих) классах или трейтах текущей области видимости.
+	- **Импорты:** значения, явно или полностью (через `_` или `*`) импортированные в текущий файл/область из других пакетов или объектов.
+- Контекст типа
+	- Companion objects of a type
+	- Implicit scope of an argument's type **(2.9.1)**
+	- Implicit scope of type arguments **(2.8.0)**
+	- Outer objects for nested types
+	- Other dimensions
 
 ### Операции времени компиляции (Compile-time Operations)
 

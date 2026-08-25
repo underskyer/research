@@ -1,4 +1,9 @@
 
+Разновидности
+- Implicit Conversion
+- Given Parameters
+- Context Bounds (классы типов)
+
 
 
 - встроенные неявные экземпляры
@@ -11,9 +16,6 @@
 	- `scala.{CanEqual, ValueOf}`
 
 
-- Implicit Conversion
-- Given Parameters
-- Context Bounds (классы типов)
 
 ### Правила поиска
 

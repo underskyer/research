@@ -6,7 +6,7 @@
 ```scala
 given theAnswer: Int = 42
 given eitherFinctor: [E] => Functor[Either[E, *]] = ??? // полиморфное значение!
-given parseArgs: ArgsParser = args =>  
+given parseArgs: ArgsParser = args => 
   IO  
     .fromOption(args.headOption)(new Throwable("Передайте Url!"))  
     .map(ScanUrl.apply)

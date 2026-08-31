@@ -30,6 +30,8 @@ given eitherFinctor: [E] => Functor[Either[E, *]]        = ??? // полимор
 - значения для механизма отражений: `scala.reflect.{ClassTag, TypeTag, TypeTest, Manifest}`, `scala.deriving.Mirror`;
 - `scala.{CanEqual, ValueOf}`.
 
+Кстати, неявное приведение от подтипа к супертипу 
+
 ## Извлечение неявных значений
 
 | Способ                        | Где используется     | Назначение                                           |

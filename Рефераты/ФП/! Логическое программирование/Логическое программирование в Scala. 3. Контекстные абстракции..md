@@ -104,6 +104,23 @@ given ClassType[MyType] = ClassType.derived
 - Logic programming in scala (part 1, part 2) — обзор в двух частях Бартоша Витковски о логическом программировании на Scala.
 
 [Where does Scala look for implicits?](https://stackoverflow.com/questions/5598085/where-does-scala-look-for-implicits)
+[How can I chain implicits in Scala?](https://stackoverflow.com/questions/5332801/how-can-i-chain-implicits-in-scala)
+
+Юджин Йокота:
+- [revisiting implicits without import tax](http://eed3si9n.com/revisiting-implicits-without-import-tax)
+- [implicit parameter precedence again](http://eed3si9n.com/implicit-parameter-precedence-again)
+- [Implicit parameter resolution precedence](https://stackoverflow.com/a/8694558/4583514)
+
+[The Scala Language Specification.](https://www.scala-lang.org/downloads/distrib/files/website/doc/ScalaReference.pdf)
+[Chapter 2. Identifiers, Names and Scopes](https://scala-lang.org/files/archive/spec/2.13/02-identifiers-names-and-scopes.html)
+
+> Names in Scala identify types, values, methods, and classes which are collectively called entities. Names are introduced by local definitions and declarations (§4), inheritance (§5.1.3), import clauses (§4.7), or package clauses (§9.2) which are collectively called bindings.
+> Bindings of different kinds have a precedence defined on them:
+> 1. Definitions and declarations that are local, inherited, or made available by a package clause in the same compilation unit where the definition occurs have highest precedence.
+> 2. Explicit imports have next highest precedence.
+> 3. Wildcard imports have next highest precedence.
+> 4. Definitions made available by a package clause not in the compilation unit where the definition occurs have lowest precedence.
+
 
 # Заключение (недостатки и перспективы)
 

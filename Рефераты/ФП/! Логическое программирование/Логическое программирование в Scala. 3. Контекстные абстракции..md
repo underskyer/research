@@ -105,7 +105,13 @@ object Derive:
   inline def apply[F[_], A](using d: Derive[F, A]): F[A] = d.value
 ```
 
-Сперва разберёмся с «запаковкой». 
+Чтобы «запаковывать» неявные значения `args: List[String]` достаточно добавить в объект-компаньон такой `given`:
+```scala
+given pure[F[_]: Monad as F, A: Id as a]: Derive[F, A] = new:  
+  val value = F.pure(a)
+```
+
+Теперь нужно добавить преобразования `flatMap` (и `map`). 
 
 
 # Дополнительная литература

@@ -130,18 +130,18 @@ trait LowPriorityDerive:
   type ReaderT[F[_], A] = [B] =>> A => F[B]  
   type Derived[F[_]] = [A] =>> Derive[F, A]  
   
-  given map[
+  given map: [
     F[_]: Functor as F,
     B: ReaderT[Id, A] as f,
     A: Derived[F] as fa
-  ]: Derive[F, B] = new:
+  ] => Derive[F, B] = new:
     val value: F[B] = F.map(fa.value)(f)
 
-  given flatMap[
+  given flatMap: [
     F[_]: Monad as F,
     B: ReaderT[F, A] as f,
-    A: Derived[F] as fa
-  ]: Derive[F, B] = new:
+    A: Derived[F] as fa,
+  ] => Derive[F, B] = new:
     val value: F[B] = F.flatMap(fa.value)(f)
 ```
 
@@ -149,19 +149,19 @@ trait LowPriorityDerive:
 
 Кроме монадических операций нам необходимо также уметь комбинировать независимые шаги, а также траверсировать по коллекциям. Обе эти возможности требуют, чтобы функтор `F` можно было [переставлять](https://habr.com/ru/articles/957848/#distributive) с бифунктором произведения (кортежа  `(*, *)`), что в терминах библиотеки Cats описывается классом типов `Applicative`. Значит, нам достаточно добавить в трейт `LowPriorityDerive` следующие `given`:
 ```scala
-given tuppled[  
+given tuppled: [  
   F[_]: Applicative as F,  
   A: Derived[F] as fa,  
   B: Derived[F] as fb  
-]: Derive[F, (A, B)] = new:  
+] => Derive[F, (A, B)] = new:  
   val value: F[(A, B)] = F.product(fa.value, fb.value)  
   
-given traverse[  
+given traverse: [  
   F[_]: Monad as F,  
-  G[_]: Traverse as G, // контейнер G обязан быть коллекцией 
+  G[_]: Traverse as G,  
   B: ReaderT[F, A] as f,  
-  A: Derived[F] ∘ G as fga // infix type ∘[F[_], G[_]] = [A] =>> F[G[A]]
-]: Derive[F, G[B]] = new:  
+  A: Derived[F] ∘ G as fga  
+] => Derive[F, G[B]] = new:  
   val value: F[G[B]] = F.flatMap(fga.value)(G.traverse(_)(f))
 ```
 
@@ -174,7 +174,7 @@ object myApp extends IOApp:
     Derive[IO, ExitCode]
 ```
 
-Но с помощью зависимого типа можно сделать синтаксис чуточку приятнее:
+С техникой зависимых типов можно сделать синтаксис чуточку приятнее:
 ```scala
 trait Infer[FA]:  
   type Value  
@@ -191,6 +191,9 @@ object myApp extends IOApp:
   override def run(using args: List[String]) =  
     Infer[IO[ExitCode]]
 ```
+
+
+
 
 # Дополнительная литература
 

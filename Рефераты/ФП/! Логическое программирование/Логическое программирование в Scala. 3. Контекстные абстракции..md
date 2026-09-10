@@ -285,4 +285,6 @@ given loadErrorHandler: LoadErrorHandler =
 Хабр:
 - [Роль логического программирования, и стоит ли планировать его изучение на 2021-й](https://habr.com/ru/articles/534314/)
 - [Что такое логическое программирование и зачем оно нам нужно](https://habr.com/ru/articles/322900/)
+- [Как использовать implicit'ы в Scala и сохранить рассудок](https://habr.com/ru/articles/329600/)
+- [Неявные параметры. Когда их следует использовать? Часть 1](https://habr.com/ru/companies/otus/articles/718628/) перевод статьи Жюльена Трюффо
 
